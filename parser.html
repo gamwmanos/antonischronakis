@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="utf-8">
+    <title>Parser</title>
+</head>
+<body>
+<iframe id="docFrame" src="ALYSEISKEF1.htm" style="width:100%;height:400px;"></iframe>
+<textarea id="output" style="width:100%;height:400px;">Loading...</textarea>
+<script>
+document.getElementById('docFrame').onload = function() {
+    try {
+        let frameDoc = this.contentWindow.document;
+        let paragraphs = frameDoc.querySelectorAll('p');
+        let extracted = [];
+        let currentQuestion = "";
+        let currentAnswer = "";
+        let isAnswerMode = false;
+
+        for (let p of paragraphs) {
+            let text = p.textContent.trim();
+            if (!text) continue;
+
+            // Determine predominant color of paragraph
+            let spans = p.querySelectorAll('span');
+            let isRed = false;
+            
+            // Check computed style of the paragraph itself
+            let pColor = this.contentWindow.getComputedStyle(p).color;
+            if (pColor === 'rgb(255, 0, 0)' || pColor === 'red') {
+                 isRed = true;
+            }
+
+            for (let span of spans) {
+                let color = this.contentWindow.getComputedStyle(span).color;
+                // Word reds often: rgb(255,0,0) or rgb(192,0,0)
+                if (color === 'rgb(255, 0, 0)' || color === 'rgb(192, 0, 0)' || color === 'red') {
+                    isRed = true;
+                    break;
+                }
+            }
+
+            // Word sometimes sets inline color directly
+            if (p.innerHTML.match(/color:\s*(red|#FF0000|#C00000)/i)) {
+                isRed = true;
+            }
+
+            if (isRed) {
+                currentAnswer += text + "\n";
+                isAnswerMode = true;
+            } else {
+                if (isAnswerMode) {
+                    // We transitioned from red back to black. Save previous pair.
+                    if (currentQuestion.trim() && currentAnswer.trim()) {
+                        extracted.push({ q: currentQuestion.trim(), a: currentAnswer.trim() });
+                    }
+                    currentQuestion = "";
+                    currentAnswer = "";
+                    isAnswerMode = false;
+                }
+                currentQuestion += text + "\n";
+            }
+        }
+        
+        // Push the last one
+        if (currentQuestion.trim() && currentAnswer.trim()) {
+            extracted.push({ q: currentQuestion.trim(), a: currentAnswer.trim() });
+        }
+
+        document.getElementById('output').value = JSON.stringify(extracted, null, 2);
+    } catch(e) {
+        document.getElementById('output').value = "Error: " + e.message;
+    }
+};
+</script>
+</body>
+</html>

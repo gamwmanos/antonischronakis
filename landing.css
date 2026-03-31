@@ -1,8 +1,10 @@
 /* 
   Landing Page Specific Styles 
   Designed for Antonis Chronakis Personal Website
-  Inspiration: Steven Pinker (Minimal, typography-driven, high contrast)
+  Inspiration: Minimal, typography-driven, academic
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
   /* Green-Yellow (Πρασινοκίτρινη) Palette */
@@ -13,7 +15,8 @@
   --accent-green: #7cb342; /* Green-Yellow button accent */
   --accent-green-hover: #689f38;
   --border-color: #dcedc8;
-  --font-main: 'Montserrat', sans-serif;
+  --font-main: 'Inter', sans-serif;
+  --font-serif: 'Lora', serif;
   
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -48,6 +51,7 @@ body {
 
 /* Typography Base */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
   font-weight: 700;
   line-height: 1.2;
 }
@@ -79,11 +83,12 @@ p {
 }
 
 .logo-landing {
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 1.35rem; /* Slightly larger for Lora to balance */
+  font-weight: 700;
   color: var(--text-main);
   text-decoration: none;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
