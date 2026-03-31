@@ -960,3 +960,29 @@ p {
     display: none; /* Hide arrows on very small mobile devices, let them swipe */
   }
 }
+
+/* =========================================
+   SUB-TABS SYSTEM & ALTERNATING EXPERIMENTS
+   ========================================= */
+.sub-tabs-container { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.sub-tab-btn { background-color: transparent; color: var(--text-main); border: 2px solid var(--border-color); padding: 0.6rem 1.8rem; font-size: 0.95rem; font-weight: 600; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; font-family: var(--font-main); }
+.sub-tab-btn:hover { background-color: var(--bg-secondary); border-color: var(--accent-green); transform: translateY(-2px); }
+.sub-tab-btn.active { background-color: var(--accent-green); color: #fff; border-color: var(--accent-green); box-shadow: 0 4px 10px rgba(124, 179, 66, 0.3); }
+.sub-tab-content { display: none; animation: fadeIn 0.4s ease forwards; }
+.sub-tab-content.active { display: block; }
+
+/* Alternating Experiments List */
+.experiments-list { display: flex; flex-direction: column; gap: 3rem; margin-top: 1rem; }
+.experiment-row { display: flex; align-items: center; background: #fff; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(124, 179, 66, 0.08); gap: 2rem;}
+.experiment-row.reverse { flex-direction: row-reverse; }
+.experiment-row .video-container { flex: 0 0 50%; aspect-ratio: 16/9; padding-bottom: 0; height: auto; background-color: #000; position: relative; }
+.experiment-row .video-info { flex: 1; padding: 2.5rem; }
+.experiment-row .video-info h3 { font-size: 1.4rem; color: var(--accent-green); margin-bottom: 1rem; }
+.experiment-row .video-info p { font-size: 1.05rem; line-height: 1.6; }
+
+@media (max-width: 850px) {
+  .experiment-row, .experiment-row.reverse { flex-direction: column; gap: 0; }
+  .experiment-row .video-container { width: 100%; flex: none; padding-bottom: 56.25%; }
+  .experiment-row .video-info { padding: 1.5rem; }
+}
+

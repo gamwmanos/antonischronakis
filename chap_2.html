@@ -43,79 +43,82 @@
         
         <!-- TABS MENU -->
         <div class="tabs-container">
-            <button class="tab-btn active" data-target="tab-theory-1">Θεωρία 2.1</button>
-            <button class="tab-btn" data-target="tab-theory-2">Θεωρία 2.2</button>
-            <button class="tab-btn" data-target="tab-exercises">Ερωτήσεις Κατανόησης</button>
-            <button class="tab-btn" data-target="tab-mcq">Σ/Λ &amp; Πολλαπλής</button>
-            <button class="tab-btn" data-target="tab-experiments">Πειράματα</button>
+            <button class="tab-btn active" data-target="main-theory">Θεωρία</button>
+            <button class="tab-btn" data-target="main-exercises">Ασκήσεις</button>
+            <button class="tab-btn" data-target="main-experiments">Πειράματα</button>
         </div>
 
-        <!-- TAB 1: THEORY 2.1 (Now Default) -->
-        <div id="tab-theory-1" class="tab-content active">
-            <h2 style="color: var(--accent-green); margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Θεωρία 2.1</h2>
-            <div class="pdf-container">
-                <iframe src="https://drive.google.com/file/d/1iK3HS8lFDWhrJSIxqcqdhfVFTJRPIv0l/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+        <!-- MAIN TAB 1: THEORY -->
+        <div id="main-theory" class="tab-content active">
+            <div class="sub-tabs-container">
+                <button class="sub-tab-btn active" data-target="sub-theory-1">Θεωρία 2.1</button>
+                <button class="sub-tab-btn" data-target="sub-theory-2">Θεωρία 2.2</button>
+            </div>
+            
+            <div id="sub-theory-1" class="sub-tab-content active">
+                <div class="pdf-container">
+                    <iframe src="https://drive.google.com/file/d/1iK3HS8lFDWhrJSIxqcqdhfVFTJRPIv0l/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+                </div>
+            </div>
+            <div id="sub-theory-2" class="sub-tab-content">
+                <div class="pdf-container">
+                    <iframe src="https://drive.google.com/file/d/17KihzCUYkpCbdV5um_EGs7ayAwYeWLVn/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+                </div>
             </div>
         </div>
 
-        <!-- TAB 2: THEORY 2.2 -->
-        <div id="tab-theory-2" class="tab-content">
-            <h2 style="color: var(--accent-green); margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Θεωρία 2.2</h2>
-            <div class="pdf-container">
-                <iframe src="https://drive.google.com/file/d/17KihzCUYkpCbdV5um_EGs7ayAwYeWLVn/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+        <!-- MAIN TAB 2: EXERCISES -->
+        <div id="main-exercises" class="tab-content">
+            <div class="sub-tabs-container">
+                <button class="sub-tab-btn active" data-target="sub-exercises-1">Ερωτήσεις Κατανόησης</button>
+                <button class="sub-tab-btn" data-target="sub-exercises-2">Σ/Λ &amp; Πολλαπλής</button>
+            </div>
+            
+            <div id="sub-exercises-1" class="sub-tab-content active">
+                <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Ερωτήσεις Κατανόησης</h2>
+                <div id="dynamicQuestions">
+                    <!-- Questions loaded via JSON will appear here -->
+                </div>
+            </div>
+            
+            <div id="sub-exercises-2" class="sub-tab-content">
+                <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Πολλαπλής Επιλογής &amp; Σωστό/Λάθος</h2>
+                <div id="mcqContainer">
+                    <!-- Questions loaded via JSON will appear here -->
+                </div>
+
+                <!-- Scoreboard & Reset (Moved to Bottom) -->
+                <div class="score-board" style="margin-top: 3rem; background: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); position: relative; top: 0;">
+                    <h2 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.5rem;">
+                        Σκορ Πολλαπλής Επιλογής: <strong style="color: var(--accent-green);"><span id="scoreDisplay">0</span> / <span id="totalDisplay">0</span></strong>
+                    </h2>
+                    <button id="resetBtn" class="btn-green-outline" style="margin-top: 0.5rem; font-size: 0.9rem; padding: 0.5rem 1rem;">Επανέλαβε το τέστ (Reset)</button>
+                </div>
             </div>
         </div>
 
-        <!-- TAB 3: EXERCISES -->
-        <div id="tab-exercises" class="tab-content">
-            <!-- Δυναμικές Ερωτήσεις Ανοιχτού Τύπου (Από το Word) -->
-            <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Ερωτήσεις Κατανόησης</h2>
-            <div id="dynamicQuestions">
-                <!-- Questions loaded via JSON will appear here -->
-            </div>
-        </div>
-
-        <!-- TAB 4: MCQ & QUIZ -->
-        <div id="tab-mcq" class="tab-content">
-            <!-- Στατικές Ερωτήσεις Πολλαπλής / ΣΛ -->
-            <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Πολλαπλής Επιλογής &amp; Σωστό/Λάθος</h2>
-            <div id="mcqContainer">
-                <!-- Questions loaded via JSON will appear here -->
-            </div>
-
-            <!-- Scoreboard & Reset (Moved to Bottom) -->
-            <div class="score-board" style="margin-top: 3rem; background: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); position: relative; top: 0;">
-                <h2 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.5rem;">
-                    Σκορ Πολλαπλής Επιλογής: <strong style="color: var(--accent-green);"><span id="scoreDisplay">0</span> / <span id="totalDisplay">0</span></strong>
-                </h2>
-                <button id="resetBtn" class="btn-green-outline" style="margin-top: 0.5rem; font-size: 0.9rem; padding: 0.5rem 1rem;">Επανέλαβε το τέστ (Reset)</button>
-            </div>
-        </div>
-
-        <!-- TAB 3: EXPERIMENTS -->
-        <div id="tab-experiments" class="tab-content">
+        <!-- MAIN TAB 3: EXPERIMENTS -->
+        <div id="main-experiments" class="tab-content">
             <h2 style="color: var(--accent-green); margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Εργαστηριακά Πειράματα</h2>
-            <div class="experiments-grid">
+            <div class="experiments-list">
                 <!-- Video 1 -->
-                <div class="video-card">
+                <div class="experiment-row">
                     <div class="video-container">
-                        <!-- Placeholder Youtube Video -->
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
                     </div>
                     <div class="video-info">
-                        <h3>Πείραμα 1: Τίτλος (Placeholder)</h3>
-                        <p>Δείγμα βίντεο από το εργαστήριο. Θα αντικατασταθεί με το κανονικό βίντεο σύντομα.</p>
+                        <h3>Πείραμα 1: Προσομοίωση Αντίδρασης (Placeholder)</h3>
+                        <p>Αυτό είναι ένα τυχαίο ενδεικτικό βίντεο. Εδώ βλέπουμε τη χημική αντίδραση και παρατηρούμε τις αλλαγές που συμβαίνουν στο διάλυμα κατά τη διάρκεια της ανάμειξης.</p>
                     </div>
                 </div>
-                <!-- Video 2 -->
-                <div class="video-card">
+                <!-- Video 2 - Reversed layout -->
+                <div class="experiment-row reverse">
                     <div class="video-container">
-                        <!-- Placeholder Youtube Video -->
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
                     </div>
                     <div class="video-info">
-                        <h3>Πείραμα 2: Τίτλος (Placeholder)</h3>
-                        <p>Δείγμα βίντεο από το εργαστήριο. Θα αντικατασταθεί με το κανονικό βίντεο σύντομα.</p>
+                        <h3>Πείραμα 2: Έλεγχος Θερμοκρασίας (Placeholder)</h3>
+                        <p>Ένα ακόμη τυχαίο βίντεο πειράματος. Σε αυτό το σημείο παρακολουθούμε την επίδραση της θερμοκρασίας στην ταχύτητα της αντίδρασης και μετράμε τον διαρκή χρόνο.</p>
                     </div>
                 </div>
             </div>
@@ -287,8 +290,8 @@
         // ----------------------------------------------------
         // 4. Tabs Interaction Logic
         // ----------------------------------------------------
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
+        const tabBtns = document.querySelectorAll('.tabs-container > .tab-btn');
+        const tabContents = document.querySelectorAll('main > .tab-content');
 
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -303,7 +306,25 @@
                 const targetId = btn.getAttribute('data-target');
                 document.getElementById(targetId).classList.add('active');
                 
-                // Trigger a reflow resize for iframe constraints (fixes bug on some browsers)
+                // Trigger a reflow resize for iframe constraints
+                window.dispatchEvent(new Event('resize'));
+            });
+        });
+
+        // Sub tabs
+        const subTabBtns = document.querySelectorAll('.sub-tab-btn');
+        
+        subTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const parentContainer = btn.closest('.tab-content');
+                const siblingBtns = parentContainer.querySelectorAll('.sub-tab-btn');
+                const siblingContents = parentContainer.querySelectorAll('.sub-tab-content');
+                
+                siblingBtns.forEach(b => b.classList.remove('active'));
+                siblingContents.forEach(c => c.classList.remove('active'));
+                
+                btn.classList.add('active');
+                document.getElementById(btn.getAttribute('data-target')).classList.add('active');
                 window.dispatchEvent(new Event('resize'));
             });
         });
