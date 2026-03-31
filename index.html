@@ -3,47 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Αρχική | Αντώνης Χρονάκης - Χημικός</title>
-    <meta name="description" content="Καλωσορίσατε στην προσωπική σελίδα του Χημικού Αντώνη Χρονάκη. Εκπαιδευτικό υλικό, σημειώσεις και πειράματα Χημείας.">
-    <link rel="stylesheet" href="styles.css">
+    <title>Αντώνης Χρονάκης | Χημεία</title>
+    <meta name="description" content="Η προσωπική ιστοσελίδα και εκπαιδευτικό portal του Χημικού και Συγγραφέα Αντώνη Χρονάκη.">
+    <!-- Using Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Χρονάκης / Χημεία</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Αρχική</a></li>
+    <header class="landing-header">
+        <div class="nav-container-landing">
+            <a href="index.html" class="logo-landing">Αντώνης Χρονάκης <span class="divider">/</span> <span class="logo-highlight">Χημεία</span></a>
+            <ul class="nav-links-landing">
+                <li><a href="index.html" class="active">Αρχική</a></li>
+                <li><a href="#books">Βιβλία</a></li>
                 <li><a href="bio.html">Βιογραφικό</a></li>
                 <li><a href="edu.html">Εκπαιδευτικό Υλικό</a></li>
                 <li><a href="contact.html">Επικοινωνία</a></li>
             </ul>
         </div>
     </header>
+    
     <main>
-        <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=80') center/cover; padding: 6rem 2rem;">
-            <h1>Καλωσορίσατε στον Κόσμο της Χημείας</h1>
-            <p>Ανακαλύψτε, πειραματιστείτε και μάθετε μέσα από το πλούσιο εκπαιδευτικό υλικό που έχουμε ετοιμάσει. Η επιστήμη της Χημείας βρίσκεται παντού γύρω μας.</p>
-            <a href="edu.html" class="btn">Δείτε το Υλικό</a>
+        <!-- Hero Section (Full Background) -->
+        <section class="hero-fullscreen">
+            <div class="container hero-content-wrapper">
+                <div class="hero-content-inner">
+                    <p class="hero-subtitle">ΚΑΘΗΓΗΤΗΣ ΧΗΜΕΙΑΣ &amp; ΣΥΓΓΡΑΦΕΑΣ</p>
+                    <h1 class="hero-title">ΑΝΤΩΝΗΣ ΧΡΟΝΑΚΗΣ</h1>
+                    <p class="hero-description">Εξερευνώντας τον κόσμο της Χημείας, από τη σχολική αίθουσα μέχρι την καθημερινή ζωή.</p>
+                    <a href="#books" class="btn-green">Δείτε τα Βιβλία</a>
+                </div>
+            </div>
         </section>
 
-        <section class="card-grid">
-            <div class="card">
-                <h3>Η Προσέγγιση</h3>
-                <p>Μαθαίνουμε Χημεία συνδυάζοντας τη θεωρία με την πράξη. Κάθε κεφάλαιο συνοδεύεται από εργαστηριακές ασκήσεις που κάνουν τη μάθηση βιωματική.</p>
+        <!-- Books Section -->
+        <section id="books" class="books-section">
+            <div class="container">
+                <h2 class="section-title">Τα Βιβλία</h2>
+                <div class="books-grid">
+                    <!-- Book 1 -->
+                    <div class="book-card">
+                        <div class="book-cover-placeholder">
+                            <span>Α'</span>
+                            <small>Λυκείου</small>
+                        </div>
+                        <h3>Χημεία Α' Λυκείου</h3>
+                        <p class="book-desc">Βασικές αρχές της Χημείας με αναλυτική θεωρία.<br>Απόλυτα προσαρμοσμένο στη σχολική ύλη.</p>
+                        <a href="edu.html" class="btn-green">Περισσότερα</a>
+                    </div>
+                    <!-- Book 2 -->
+                    <div class="book-card">
+                        <div class="book-cover-placeholder">
+                            <span>Β'</span>
+                            <small>Γυμνασίου</small>
+                        </div>
+                        <h3>Χημεία Β' Γυμνασίου</h3>
+                        <p class="book-desc">Εισαγωγή στη Χημεία με πλούσια εικονογράφηση.<br>Ιδανικό για τα πρώτα βήματα στην επιστήμη.</p>
+                        <a href="edu.html" class="btn-green">Περισσότερα</a>
+                    </div>
+                    <!-- Book 3 -->
+                    <div class="book-card">
+                        <div class="book-cover-placeholder">
+                            <span>Γ'</span>
+                            <small>Γυμνασίου</small>
+                        </div>
+                        <h3>Χημεία Γ' Γυμνασίου</h3>
+                        <p class="book-desc">Εμβάθυνση στις χημικές αντιδράσεις και ενώσεις.<br>Περιλαμβάνει πληθώρα κατανοητών ασκήσεων.</p>
+                        <a href="edu.html" class="btn-green">Περισσότερα</a>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h3>Για Μαθητές</h3>
-                <p>Πλήρεις σημειώσεις για όλες τις τάξεις του Λυκείου με έμφαση στην κατανόηση βαθύτερων εννοιών και στην επίλυση σύνθετων ασκήσεων.</p>
-            </div>
-            <div class="card">
-                <h3>Πειράματα</h3>
-                <p>Άμεση εφαρμογή και παρατήρηση χημικών φαινομένων. Ανακαλύψτε πόσο δημιουργική και εντυπωσιακή μπορεί να είναι η Χημεία στις εφαρμογές της.</p>
+        </section>
+
+        <!-- Short Bio Section -->
+        <section class="short-bio-section">
+            <div class="container bio-container">
+                <h2 class="section-title">Σύντομο Βιογραφικό</h2>
+                <div class="bio-content">
+                    <p>
+                        Ο Αντώνης Χρονάκης είναι καθηγητής Χημείας, συγγραφέας και πρωτοπόρος στην ανάπτυξη εκπαιδευτικού υλικού 
+                        για την κατανόηση των φυσικών επιστημών. Μέσα από το πλούσιο συγγραφικό του έργο και την 
+                        καινοτόμο διδασκαλία, στοχεύει να μεταδώσει το πάθος του για τη Χημεία σε μαθητές όλων των βαθμίδων.
+                    </p>
+                    <div class="bio-action">
+                        <a href="bio.html" class="btn-green-outline">Διαβάστε το πλήρες βιογραφικό</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Αντώνης Χρονάκης. All rights reserved.</p>
+    
+    <footer class="landing-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Αντώνης Χρονάκης</p>
+            <div class="footer-socials">
+                <a href="contact.html" title="Email" class="footer-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+                <a href="#" title="LinkedIn" class="footer-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </div>
+        </div>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>

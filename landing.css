@@ -1,0 +1,525 @@
+/* 
+  Landing Page Specific Styles 
+  Designed for Antonis Chronakis Personal Website
+  Inspiration: Steven Pinker (Minimal, typography-driven, high contrast)
+*/
+
+:root {
+  /* Green-Yellow (Πρασινοκίτρινη) Palette */
+  --bg-color: #f6fcee; 
+  --bg-secondary: #e9f5d8;
+  --text-main: #2b331f;
+  --text-light: #4e5e3a;
+  --accent-green: #7cb342; /* Green-Yellow button accent */
+  --accent-green-hover: #689f38;
+  --border-color: #dcedc8;
+  --font-main: 'Montserrat', sans-serif;
+  
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+.landing-header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(246, 252, 238, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container-landing {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-landing {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.logo-landing .divider {
+  color: #b5cc95;
+  font-weight: 300;
+  margin: 0 0.3rem;
+}
+
+.logo-landing .logo-highlight {
+  color: var(--accent-green);
+}
+
+.nav-links-landing {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links-landing a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links-landing a:hover,
+.nav-links-landing a.active {
+  color: var(--accent-green);
+}
+
+/* =========================================
+   HERO SECTION (FULL BACKGROUND)
+   ========================================= */
+.hero-fullscreen {
+  position: relative;
+  min-height: calc(100vh - 85px); /* Minus header height */
+  width: 100%;
+  background-image: url('chronakis_photo.png');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+/* Subtle gradient to ensure text readability over the image, fading towards the right so the face is fully clear */
+.hero-fullscreen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(246, 252, 238, 0.95) 0%, rgba(246, 252, 238, 0.75) 45%, rgba(246, 252, 238, 0) 75%);
+  z-index: 1;
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-content-inner {
+  max-width: 600px;
+  padding: var(--spacing-md) 0;
+}
+
+/* Huge letters like Pinker's site */
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  color: var(--text-main);
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-light);
+  max-width: 500px;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+.btn-green {
+  display: inline-block;
+  background-color: var(--accent-green);
+  color: #FFFFFF;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--accent-green);
+}
+
+.btn-green:hover {
+  background-color: var(--accent-green-hover);
+  border-color: var(--accent-green-hover);
+  color: #FFFFFF;
+}
+
+.btn-green-outline {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--accent-green);
+  padding: 0.8rem 2rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--accent-green);
+}
+
+.btn-green-outline:hover {
+  background-color: var(--accent-green);
+  color: #FFFFFF;
+}
+
+/* =========================================
+   SECTIONS & TYPOGRAPHY
+   ========================================= */
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-main);
+  position: relative;
+}
+
+/* =========================================
+   BOOKS SECTION
+   ========================================= */
+.books-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--bg-color);
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.book-card {
+  text-align: center;
+  padding: var(--spacing-md);
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+}
+
+.book-cover-placeholder {
+  background-color: var(--bg-secondary);
+  height: 350px;
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #a3bf82;
+  font-size: 6rem;
+  font-weight: 800;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(124, 179, 66, 0.05); /* Soft green shadow */
+  position: relative;
+  overflow: hidden;
+}
+
+.book-cover-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 100%;
+  background: rgba(0,0,0,0.02);
+  border-right: 1px solid rgba(0,0,0,0.05); /* Book spine effect */
+}
+
+.book-cover-placeholder small {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.book-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.book-desc {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  min-height: 50px; /* Keep alignment */
+}
+
+/* =========================================
+   SHORT BIO SECTION
+   ========================================= */
+.short-bio-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--bg-secondary);
+}
+
+.bio-container {
+  max-width: 800px;
+  text-align: center;
+}
+
+.bio-content p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: var(--text-main);
+  margin-bottom: var(--spacing-md);
+}
+
+/* =========================================
+   CV / BIO SPECIFIC CLASSES
+   ========================================= */
+.bio-hero-banner {
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-lg) 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.cv-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+.cv-section {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.cv-section:last-child {
+  border-bottom: none;
+}
+
+.cv-section-title {
+  color: var(--accent-green);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.cv-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.cv-list li {
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  color: var(--text-main);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.cv-list li::before {
+  content: '➤';
+  color: var(--accent-green);
+  position: absolute;
+  left: 0;
+  font-size: 0.9rem;
+  top: 4px;
+}
+
+.cv-sub-section {
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  border-left: 4px solid var(--accent-green);
+  margin-top: 1rem;
+  font-size: 1.05rem;
+}
+
+/* Olympiads Grid */
+.olympiad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.olympiad-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(124, 179, 66, 0.08); /* Soft green shadow */
+  transition: transform 0.3s;
+}
+
+.olympiad-card:hover {
+  transform: translateY(-5px);
+}
+
+.olympiad-card h4 {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  padding: 1rem 1rem 0 1rem;
+}
+
+.olympiad-card p {
+  padding: 0.5rem 1rem 1rem 1rem;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+.photo-placeholder {
+  height: 180px;
+  background-color: var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6a8c43;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 3px solid var(--accent-green);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.landing-footer {
+  padding: var(--spacing-md) 0;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-content p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-icon {
+  color: var(--text-light);
+  transition: color 0.3s;
+}
+
+.footer-icon:hover {
+  color: var(--accent-green);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1024px) {
+  .hero-title { font-size: 3.5rem; }
+  .books-grid { gap: 2rem; }
+}
+
+@media (max-width: 850px) {
+  .hero-fullscreen {
+    background-position: 70% center; 
+  }
+  
+  .hero-fullscreen::before {
+    background: linear-gradient(to right, rgba(246, 252, 238, 0.95) 0%, rgba(246, 252, 238, 0.8) 60%, rgba(246, 252, 238, 0) 100%);
+  }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .nav-container-landing {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .nav-links-landing {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 2.5rem; }
+  .book-cover-placeholder { height: 280px; }
+  
+  .hero-fullscreen::before {
+    background: rgba(246, 252, 238, 0.9); /* Solid slightly transparent overlay for mobile legibility */
+  }
+}

@@ -3,108 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Βιογραφικό | Αντώνης Χρονάκης - Χημικός</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Βιογραφικό | Αντώνης Χρονάκης</title>
+    <!-- Using Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
 </head>
-<body>
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Χρονάκης / Χημεία</a>
-            <ul class="nav-links">
+<body class="bio-page">
+    <header class="landing-header">
+        <div class="nav-container-landing">
+            <a href="index.html" class="logo-landing">Αντώνης Χρονάκης <span class="divider">/</span> <span class="logo-highlight">Χημεία</span></a>
+            <ul class="nav-links-landing">
                 <li><a href="index.html">Αρχική</a></li>
+                <li><a href="index.html#books">Βιβλία</a></li>
                 <li><a href="bio.html" class="active">Βιογραφικό</a></li>
                 <li><a href="edu.html">Εκπαιδευτικό Υλικό</a></li>
                 <li><a href="contact.html">Επικοινωνία</a></li>
             </ul>
         </div>
     </header>
-    <main>
-        <!-- Hero Section -->
-        <section class="bio-hero">
-            <div class="profile-pic">
-                <span>📷</span>
-            </div>
-            <div class="bio-intro">
-                <h1>Αντώνης Χρονάκης</h1>
-                <h3>Χημικός | Εκπαιδευτικός | Επιστημονικός Συντάκτης</h3>
-                <p>Διαθέτω πολυετή εμπειρία στη διδακτική των Φυσικών Επιστημών με στόχο την κατανόηση σε βάθος της Χημείας. Έχω ασχοληθεί ενεργά με την καθοδήγηση μαθητών και τη προετοιμασία τους για συμμετοχή σε Διεθνείς Ολυμπιάδες, προωθώντας την αριστεία και την επιστημονική σκέψη.</p>
-            </div>
-        </section>
 
-        <!-- Information Cards -->
-        <section class="card-grid">
-            <div class="card">
-                <h3>🎓 Ακαδημαϊκό Υπόβαθρο</h3>
-                <p><strong>Πτυχίο Χημείας</strong><br>Πανεπιστήμιο Κρήτης</p>
-                <br>
-                <p><strong>Μεταπτυχιακό (MSc)</strong><br>Σπουδές στην Εκπαίδευση με 'Άριστα' (ΕΑΠ)</p>
-                <br>
-                <p><strong>Υποψήφιος Διδάκτορας</strong></p>
+    <main class="bio-main">
+        <div class="bio-hero-banner">
+            <div class="container text-center">
+                <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 0.5rem; letter-spacing: 0;">ΒΙΟΓΡΑΦΙΚΟ ΣΗΜΕΙΩΜΑ</h1>
+                <p class="hero-subtitle" style="color: var(--text-light); letter-spacing: 2px;">ΑΝΤΩΝΗΣ ΧΡΟΝΑΚΗΣ | ΚΑΘΗΓΗΤΗΣ ΧΗΜΕΙΑΣ</p>
             </div>
-            <div class="card">
-                <h3>🏫 Εκπαιδευτική Εμπειρία</h3>
-                <p>Ενεργή παρουσία στην εκπαίδευση από το 1999.</p>
-                <br>
-                <p>Σήμερα διδάσκω στο <strong>3ο ΓΕΛ Αγίων Αναργύρων</strong>.</p>
-                <br>
-                <p>Διαθέτω μεγάλη εμπειρία ως Υπεύθυνος Σχολικών Εργαστηρίων Φυσικών Επιστημών (Υ.Σ.Ε.Φ.Ε).</p>
-            </div>
-            <div class="card">
-                <h3>📚 Συγγραφικό & Επιστημονικό Έργο</h3>
-                <p><strong>Συγγραφέας</strong> σχολικών βιβλίων Χημείας (Εκδόσεις Πεδίο).</p>
-                <br>
-                <p><strong>Πρόεδρος</strong> σε επιστημονικές επιτροπές της Ένωσης Ελλήνων Χημικών (ΕΕΧ).</p>
-                <br>
-                <p>Δημιουργός καναλιού στο <strong>YouTube</strong> με πάνω από 100 βιντεοσκοπημένα πειράματα.</p>
-            </div>
-        </section>
-
-        <!-- Vertical Timeline -->
-        <section class="timeline-section">
-            <h2>Μέντορας της Ελληνικής Ολυμπιακής Ομάδας</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span>2015</span>
-                        <p>47η Διεθνής Ολυμπιάδα Χημείας (Μπακού)</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span>2017</span>
-                        <p>49η Διεθνής Ολυμπιάδα Χημείας (Μπανγκόκ) - Βράβευση αποστολής από τον Πρόεδρο της Δημοκρατίας</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span>2018</span>
-                        <p>50η Διεθνής Ολυμπιάδα Χημείας (Πράγα & Μπρατισλάβα)</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span>2019</span>
-                        <p>51η Διεθνής Ολυμπιάδα Χημείας (Παρίσι)</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span>2023</span>
-                        <p>Ευρωπαϊκή Ολυμπιάδα Πειραμάτων EOES (Ρίγα)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <div class="cta-container">
-            <a href="https://www.youtube.com" target="_blank" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Δείτε τα Πειράματά μου στο YouTube</a>
         </div>
 
+        <div class="container cv-container">
+            
+            <!-- Προσωπικές Πληροφορίες -->
+            <section class="cv-section">
+                <h2 class="cv-section-title">Προσωπικές Πληροφορίες</h2>
+                <ul class="cv-list">
+                    <li><strong>Ηλικία:</strong> 51 ετών.</li>
+                    <li><strong>Οικογενειακή Κατάσταση:</strong> Έγγαμος, με δύο παιδιά (18 και 20 ετών).</li>
+                    <li><strong>Τρέχουσα Θέση:</strong> Καθηγητής Χημείας ΠΕ04.02 στο 3ο Γενικό Λύκειο Αγίων Αναργύρων (Γ' Διεύθυνση Δευτεροβάθμιας Εκπαίδευσης Αθηνών).</li>
+                </ul>
+            </section>
+
+            <!-- Σπουδές - Ακαδημαϊκό Υπόβαθρο -->
+            <section class="cv-section">
+                <h2 class="cv-section-title">Σπουδές &amp; Ακαδημαϊκό Υπόβαθρο</h2>
+                <ul class="cv-list">
+                    <li><strong>Πανεπιστήμιο Κρήτης (1993-1997):</strong> Απόφοιτος του Τμήματος Χημείας της Σχολής Θετικών Επιστημών, με μαθήματα επιλογής στα Παιδαγωγικά και τη Διδακτική Φυσικών Επιστημών.</li>
+                    <li><strong>Ελληνικό Ανοικτό Πανεπιστήμιο:</strong> Μεταπτυχιακό Δίπλωμα Ειδίκευσης (MSc) στο πρόγραμμα «Σπουδές στην Εκπαίδευση» (Γενικός Βαθμός: Άριστα 8,7). Εξειδίκευση στη Διδακτική Φυσικών Επιστημών και την εξ Αποστάσεως Εκπαίδευση. Έλαβε <strong>Υποτροφία Αριστείας</strong> κατά το διδακτικό έτος 2014-2015.</li>
+                    <li><strong>Διεθνές Πανεπιστήμιο της Ελλάδος (2020 - Σήμερα):</strong> Υποψήφιος Διδάκτορας Τμήματος Επιστημών Διατροφής και Διαιτολογίας.</li>
+                    <li><strong>Γλώσσες / Πιστοποιήσεις:</strong> Κάτοχος πτυχίου Cambridge (FCE), Εξειδικευμένη Αγγλική Ορολογία Χημείας, Πιστοποιήσεις ΤΠΕ (Α' και Β' Επιπέδου με άριστη βαθμολογία).</li>
+                </ul>
+            </section>
+
+            <!-- Εργασιακή Εμπειρία -->
+            <section class="cv-section">
+                <h2 class="cv-section-title">Εργασιακή Εμπειρία στην Εκπαίδευση</h2>
+                <ul class="cv-list">
+                    <li><strong>3ο ΓΕΛ Αγίων Αναργύρων (2021 - Σήμερα):</strong> Καθηγητής Θετικών Επιστημών, Υπεύθυνος Σχολικού Εργαστηρίου (Υ.Σ.Ε.Φ.Ε), Παιδαγωγικός Σύμβουλος - Μέντορας και Συντονιστής μαθημάτων Φυσικών Επιστημών.</li>
+                    <li><strong>Πρότυπο ΓΕΛ Αγίων Αναργύρων (2020 - 2022):</strong> Καθηγητής με θητεία.</li>
+                    <li><strong>ΕΚΦΕ Αγίων Αναργύρων (2013 - 2017):</strong> Συνεργάτης Χημείας. Δίδαξε ως επιμορφωτής εκπαιδευτικών σε πλήθος ημερίδων.</li>
+                    <li><strong>1999 - 2019:</strong> Εκτενής διδακτική εμπειρία ως Μόνιμος Αναπληρωτής και Ωρομίσθιος εκπαιδευτικός σε 1ο ΕΠΑΛ Πετρούπολης, 2ο ΕΠΑΛ Λουτρακίου, κ.α. Παράλληλα, θήτευσε επανειλημμένα ως υπεύθυνος εργαστηρίων.</li>
+                    <li><strong>Ιδιωτικός Τομέας:</strong> Διευθυντής Παραγωγής και Υπεύθυνος Ποιότητας στη Βιομηχανία ΄΄ΟΞΥΓΟΝΟ ΙΩΝΙΑ΄΄ (1998 - 1999) και πολυετής εμπειρία σε Φροντιστήρια Μέσης Εκπαίδευσης.</li>
+                </ul>
+            </section>
+
+            <!-- Ολυμπιάδες -->
+            <section class="cv-section">
+                <h2 class="cv-section-title">Διεθνείς Ολυμπιάδες &amp; Μαθητικοί Διαγωνισμοί</h2>
+                <p style="margin-bottom: 2rem;">Έχει καθοδηγήσει και συνοδεύσει τις Ελληνικές Εθνικές Ομάδες ως Μέντορας σε κορυφαίες παγκόσμιες διοργανώσεις:</p>
+                <div class="olympiad-grid">
+                    <div class="olympiad-card">
+                        <div class="photo-placeholder">Φωτογραφία Μπακού</div>
+                        <h4>47η Ολυμπιάδα Χημείας (2015)</h4>
+                        <p>Μπακού, Αζερμπαϊτζάν. Συμμετοχή ως Μέντορας Δευτεροβάθμιας Εκπαίδευσης.</p>
+                    </div>
+                    <div class="olympiad-card">
+                        <div class="photo-placeholder">Φωτογραφία Τιφλίδα</div>
+                        <h4>48η Ολυμπιάδα Χημείας (2016)</h4>
+                        <p>Τιφλίδα, Γεωργία. Ομόφωνη ανάθεση ως Scientific Observer εκ μέρους της ΕΕΧ.</p>
+                    </div>
+                    <div class="olympiad-card">
+                        <div class="photo-placeholder">Βράβευση Πρόεδρος Δημοκρατίας</div>
+                        <h4>49η Ολυμπιάδα Χημείας (2017)</h4>
+                        <p>Μπανγκόκ, Ταϊλάνδη. 2 μετάλλια και Τιμητική Βράβευση από τον Πρόεδρο της Δημοκρατίας.</p>
+                    </div>
+                    <div class="olympiad-card">
+                        <div class="photo-placeholder">Φωτογραφία Πράγα</div>
+                        <h4>50η Ολυμπιάδα Χημείας (2018)</h4>
+                        <p>Πράγα &amp; Μπρατισλάβα. Η Ελληνική Ολυμπιακή Ομάδα κατέκτησε 3 μετάλλια.</p>
+                    </div>
+                    <div class="olympiad-card">
+                        <div class="photo-placeholder">Φωτογραφία Παρίσι</div>
+                        <h4>51η Ολυμπιάδα Χημείας (2019)</h4>
+                        <p>Παρίσι, Γαλλία. Η Ελληνική ομάδα κατέκτησε 1 μετάλλιο.</p>
+                    </div>
+                    <div class="olympiad-card">
+                        <div class="photo-placeholder">Φωτογραφία Λετονία</div>
+                        <h4>Ευρωπαϊκή Ολυμπιάδα EOES (2023)</h4>
+                        <p>Ρίγα, Λετονία. 2 ομάδες, 2 χάλκινα μετάλλια. (Συμμετοχή ως Μέντορας Χημείας).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Συγγραφικό Έργο -->
+            <section class="cv-section">
+                <h2 class="cv-section-title">Συγγραφικό &amp; Επιστημονικό Έργο</h2>
+                <ul class="cv-list">
+                    <li><strong>Σχολικά εγχειρίδια:</strong> Συγγραφέας των νέων Πανελλαδικών εγχειριδίων Χημείας Β' &amp; Γ' Γυμνασίου και Α' Λυκείου (Εκδόσεις: Πεδίο MEDIA ΑΕ).</li>
+                    <li><strong>Δημοσιεύσεις:</strong> Συν-συγγραφέας αγγλόφωνης επιστημονικής δημοσίευσης στο "International Journal of Molecular Sciences" (2023) με θέμα σύμπλοκα σιδήρου με μη-στεροειδή αντιφλεγμονώδη φάρμακα.</li>
+                    <li><strong>Υπουργείο Παιδείας &amp; ΙΕΠ:</strong> Θεματοδότης και Αξιολογητής στην Τράπεζα Θεμάτων Διαβαθμισμένης Δυσκολίας (ΤΘΔΔ). Συντονιστής μαθήματος Χημείας στα Βαθμολογικά Κέντρα Πανελλαδικών Εξετάσεων επί σειρά ετών.</li>
+                    <li><strong>Συνέδρια:</strong> Συμμετοχές και εισηγήσεις σε πληθώρα Πανελλήνιων Συνεδρίων "Science on Stage", "Athens Science Festival" και άλλες εκπαιδευτικές ημερίδες Διδακτικής της Χημείας.</li>
+                </ul>
+            </section>
+
+            <!-- Δράση ΕΕΧ -->
+            <section class="cv-section">
+                <h2 class="cv-section-title">Ένωση Ελλήνων Χημικών (ΕΕΧ)</h2>
+                <p>Διαθέτει πολυετή, εκλεγμένη και έντονη θεσμική παρουσία στην ΕΕΧ επικεντρωμένη στην αναβάθμιση της Χημικής Εκπαίδευσης.</p>
+                <ul class="cv-list" style="margin-top:1rem;">
+                    <li>Αιρετό μέλος της Συνέλευσης των Αντιπροσώπων (ΣτΑ) από το 2015 έως σήμερα (4 διαδοχικές τριετίες).</li>
+                    <li>Διετέλεσε Πρόεδρος του Τμήματος Παιδείας και Χημικής Εκπαίδευσης της ΕΕΧ (Μάρτιος 2017 – Απρίλιος 2018).</li>
+                    <li>Επικεφαλής, Πρόεδρος ή Μέλος της Επιστημονικής και Οργανωτικής Επιτροπής των <strong>Πανελλήνιων Μαθητικών Διαγωνισμών Χημείας</strong> (από τον 29ο το 2015 έως και σήμερα).</li>
+                </ul>
+            </section>
+            
+            <!-- YouTube -->
+            <section class="cv-section" style="text-align: center; padding: 4rem 2rem; background: var(--bg-color); border: 2px dashed var(--border-color); border-radius: 8px;">
+                <h2 class="cv-section-title" style="margin-bottom: 1rem;">Οπτικοακουστικό Υλικό &amp; Τεχνολογία</h2>
+                <p style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Πέρα από τις ενσωματώσεις των ΤΠΕ στη διδακτική πράξη, διατηρεί προσωπικό κανάλι στο YouTube φιλοξενώντας <strong>άνω των 100 βιντεοσκοπημένων πειραμάτων Χημείας</strong> με αναλυτικές οδηγίες υλοποίησης, εξυπηρετώντας ως βοήθημα για εκπαιδευτικούς φορείς.
+                </p>
+                <a href="#" class="btn-green">Επισκεφθείτε το κανάλι στο YouTube</a>
+            </section>
+
+        </div>
     </main>
-    <footer>
-        <p>&copy; 2026 Αντώνης Χρονάκης. All rights reserved.</p>
+
+    <footer class="landing-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Αντώνης Χρονάκης</p>
+            <div class="footer-socials">
+                <a href="contact.html" title="Email" class="footer-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+        </div>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>
