@@ -126,7 +126,7 @@ p {
   position: relative;
   min-height: calc(100vh - 85px); /* Minus header height */
   width: 100%;
-  background-image: url('chronakis_photo.png');
+  background-image: url('chronakis_photo.jpg?v=1.1');
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
