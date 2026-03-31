@@ -523,3 +523,120 @@ p {
     background: rgba(246, 252, 238, 0.9); /* Solid slightly transparent overlay for mobile legibility */
   }
 }
+
+/* =========================================
+   TABS SYSTEM (Chapter Pages)
+   ========================================= */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background-color: var(--bg-secondary);
+  color: var(--text-main);
+  border: 2px solid var(--border-color);
+  padding: 0.8rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-main);
+}
+
+.tab-btn:hover {
+  background-color: #d8ecba; /* Lighter green */
+  border-color: var(--accent-green);
+  transform: translateY(-2px);
+}
+
+.tab-btn.active {
+  background-color: var(--accent-green);
+  color: #fff;
+  border-color: var(--accent-green);
+  box-shadow: 0 4px 10px rgba(124, 179, 66, 0.3);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Google Drive PDF frame */
+.pdf-container {
+  width: 100%;
+  height: 80vh;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(124, 179, 66, 0.08);
+}
+
+.pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Video Grid for Experiments */
+.experiments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.video-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(124, 179, 66, 0.08); /* Soft green shadow */
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-info {
+  padding: 1.5rem;
+}
+
+.video-info h3 {
+  font-size: 1.2rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.video-info p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/* Ensure the scoreboard sticks appropriately when scrolling */
+.score-board {
+  position: sticky;
+  top: 80px; /* Below the sticky header */
+  z-index: 100;
+}
