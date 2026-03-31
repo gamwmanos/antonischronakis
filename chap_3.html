@@ -112,6 +112,24 @@
                         <p>Το βίντεο πειράματος θα προστεθεί σύντομα.</p>
                     </div>
                 </div>
+                <div class="experiment-row">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Πείραμα 2: Placeholder</h3>
+                        <p>Το βίντεο πειράματος θα προστεθεί σύντομα.</p>
+                    </div>
+                </div>
+                <div class="experiment-row">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Πείραμα 3: Placeholder</h3>
+                        <p>Το βίντεο πειράματος θα προστεθεί σύντομα.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -124,6 +142,15 @@
 
     <script src="A_LYKEIOU/KEFALAIO_3/askiseis.js"></script>
     <script>
+        // Helper: Strip leading number/code from question text, keep sub-labels (α, β, γ...)
+        function stripNumber(q) {
+            // Remove patterns like "1. ", "3.2.1-4. ", "8. Α. " → keep only what follows
+            // If the question has sub-parts (α. / β. / γ.) keep them
+            return q
+                .replace(/^[\d]+\.[\d.\-]*\s*/, '')   // e.g. "3.2.1-4. " or "1. "
+                .replace(/^[Α-Ω]+\.\s*/, '');          // e.g. leading "Α. "
+        }
+
         // 1. Ερωτήσεις Κατανόησης
         const dynContainer = document.getElementById('dynamicQuestions');
         if (typeof chapter3Questions !== 'undefined' && chapter3Questions.length > 0) {
@@ -131,7 +158,7 @@
                 const card = document.createElement('div');
                 card.className = 'quiz-card';
                 card.innerHTML = `
-                    <div class="quiz-question">${item.q}</div>
+                    <div class="quiz-question">${stripNumber(item.q)}</div>
                     <button class="btn-green toggle-answer">Εμφάνιση Απάντησης ▼</button>
                     <div class="quiz-answer">${item.a}</div>
                 `;
