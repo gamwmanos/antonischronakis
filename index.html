@@ -45,34 +45,50 @@
                 <div class="books-grid">
                     <!-- Book 1 -->
                     <div class="book-card">
-                        <div class="book-cover-placeholder">
-                            <span>Α'</span>
-                            <small>Λυκείου</small>
+                        <div class="book-3d-wrapper" onclick="openBook(this, 'class_a.html')">
+                            <div class="book-3d-inner">
+                                <div class="book-page-3d"></div>
+                                <div class="book-cover-3d">
+                                    <span>Α'</span>
+                                    <small>Λυκείου</small>
+                                </div>
+                            </div>
                         </div>
                         <h3>Χημεία Α' Λυκείου</h3>
                         <p class="book-desc">Βασικές αρχές της Χημείας με αναλυτική θεωρία.<br>Απόλυτα προσαρμοσμένο στη σχολική ύλη.</p>
-                        <a href="edu.html" class="btn-green">Περισσότερα</a>
                     </div>
                     <!-- Book 2 -->
                     <div class="book-card">
-                        <div class="book-cover-placeholder">
-                            <span>Β'</span>
-                            <small>Γυμνασίου</small>
+                        <div class="book-3d-wrapper" onclick="openBook(this, 'edu.html')">
+                            <div class="book-3d-inner">
+                                <div class="book-page-3d"></div>
+                                <div class="book-cover-3d">
+                                    <span>Β'</span>
+                                    <small>Γυμνασίου</small>
+                                </div>
+                            </div>
                         </div>
                         <h3>Χημεία Β' Γυμνασίου</h3>
                         <p class="book-desc">Εισαγωγή στη Χημεία με πλούσια εικονογράφηση.<br>Ιδανικό για τα πρώτα βήματα στην επιστήμη.</p>
-                        <a href="edu.html" class="btn-green">Περισσότερα</a>
                     </div>
                     <!-- Book 3 -->
                     <div class="book-card">
-                        <div class="book-cover-placeholder">
-                            <span>Γ'</span>
-                            <small>Γυμνασίου</small>
+                        <div class="book-3d-wrapper" onclick="openBook(this, 'edu.html')">
+                            <div class="book-3d-inner">
+                                <div class="book-page-3d"></div>
+                                <div class="book-cover-3d">
+                                    <span>Γ'</span>
+                                    <small>Γυμνασίου</small>
+                                </div>
+                            </div>
                         </div>
                         <h3>Χημεία Γ' Γυμνασίου</h3>
                         <p class="book-desc">Εμβάθυνση στις χημικές αντιδράσεις και ενώσεις.<br>Περιλαμβάνει πληθώρα κατανοητών ασκήσεων.</p>
-                        <a href="edu.html" class="btn-green">Περισσότερα</a>
                     </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="edu.html" class="btn-green">ΔΕΙΤΕ ΟΛΑ ΤΑ ΒΙΒΛΙΑ</a>
                 </div>
             </div>
         </section>
@@ -108,5 +124,16 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function openBook(element, url) {
+            // Add 'is-open' class to trigger CSS 3D rotate
+            element.classList.add('is-open');
+            // Wait for 600ms (duration of the CSS transition) then redirect
+            setTimeout(() => {
+                window.location.href = url;
+            }, 600);
+        }
+    </script>
 </body>
 </html>
