@@ -59,42 +59,7 @@
         <!-- Στατικές Ερωτήσεις Πολλαπλής / ΣΛ -->
         <h2 style="color: var(--accent-green); margin-top: 4rem; margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Πολλαπλής Επιλογής &amp; Σωστό/Λάθος</h2>
         <div id="mcqContainer">
-            <!-- MCQ 1 -->
-            <div class="quiz-card mcq-card">
-                <div class="quiz-question">1. Ποια από τις παρακάτω ΔΕΝ θεωρείται βασική επιστήμη αλλά εφαρμοσμένη;</div>
-                <div class="mcq-option"><label><input type="radio" name="q1" value="wrong"> α) Φυσική</label></div>
-                <div class="mcq-option"><label><input type="radio" name="q1" value="wrong"> β) Χημεία</label></div>
-                <div class="mcq-option"><label><input type="radio" name="q1" value="correct"> γ) Ιατρική</label></div>
-                <div class="mcq-option"><label><input type="radio" name="q1" value="wrong"> δ) Βιολογία</label></div>
-                
-                <div class="feedback"></div>
-                <button class="btn-green show-mcq-answer" style="display:none; margin-top:1rem; padding: 0.5rem 1rem;">Εμφάνιση Λύσης ▼</button>
-                <div class="quiz-answer">Η Ιατρική είναι εφαρμοσμένη επιστήμη, ενώ Φυσική, Χημεία, Βιολογία και Γεωλογία είναι βασικές.</div>
-            </div>
-            
-            <!-- MCQ 2 (True/False) -->
-            <div class="quiz-card mcq-card">
-                <div class="quiz-question">2. Η Χημεία είναι η επιστήμη που μελετά αποκλειστικά τους ζωντανούς οργανισμούς. (Σωστό/Λάθος)</div>
-                <div class="mcq-option"><label><input type="radio" name="q2" value="wrong"> Σωστό</label></div>
-                <div class="mcq-option"><label><input type="radio" name="q2" value="correct"> Λάθος</label></div>
-                
-                <div class="feedback"></div>
-                <button class="btn-green show-mcq-answer" style="display:none; margin-top:1rem; padding: 0.5rem 1rem;">Εμφάνιση Λύσης ▼</button>
-                <div class="quiz-answer"><strong>Λάθος:</strong> Η Βιολογία μελετά τους ζωντανούς οργανισμούς. Η Χημεία μελετά τη δομή, τις ιδιότητες και τις μεταβολές <u>όλης</u> της ύλης (έμψυχης και άψυχης).</div>
-            </div>
-
-            <!-- MCQ 3 -->
-            <div class="quiz-card mcq-card">
-                <div class="quiz-question">3. Ποιο από τα παρακάτω θεωρείται στοιχείο;</div>
-                <div class="mcq-option"><label><input type="radio" name="q3" value="wrong"> α) Νερό (H2O)</label></div>
-                <div class="mcq-option"><label><input type="radio" name="q3" value="correct"> β) Οξυγόνο (O2)</label></div>
-                <div class="mcq-option"><label><input type="radio" name="q3" value="wrong"> γ) Αλάτι (NaCl)</label></div>
-                <div class="mcq-option"><label><input type="radio" name="q3" value="wrong"> δ) Αέρας</label></div>
-                
-                <div class="feedback"></div>
-                <button class="btn-green show-mcq-answer" style="display:none; margin-top:1rem; padding: 0.5rem 1rem;">Εμφάνιση Λύσης ▼</button>
-                <div class="quiz-answer">Το Οξυγόνο (O2) αποτελείται από ένα μόνο είδος ατόμου (χημικό στοιχείο). Το νερό και το αλάτι είναι χημικές ενώσεις, ενώ ο αέρας είναι μείγμα.</div>
-            </div>
+            <!-- Questions loaded via JSON will appear here -->
         </div>
     </main>
 
@@ -140,6 +105,37 @@
         });
 
         // ----------------------------------------------------
+        // 1.5 Δυναμική παραγωγή των Πολλαπλής Επιλογής (MCQ)
+        // ----------------------------------------------------
+        const mcqContainer = document.getElementById('mcqContainer');
+        if (typeof chapter1MCQ !== 'undefined' && chapter1MCQ.length > 0) {
+            chapter1MCQ.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'quiz-card mcq-card';
+                let optionsHtml = '';
+                item.options.forEach((opt, oIndex) => {
+                    let val = opt.correct ? 'correct' : 'wrong';
+                    optionsHtml += \`
+                        <div class="mcq-option">
+                            <label>
+                                <input type="radio" name="mcq\${index}" value="\${val}"> \${opt.text}
+                            </label>
+                        </div>
+                    \`;
+                });
+                
+                card.innerHTML = \`
+                    <div class="quiz-question">\${item.q}</div>
+                    \${optionsHtml}
+                    <div class="feedback"></div>
+                    <button class="btn-green show-mcq-answer" style="display:none; margin-top:1rem; padding: 0.5rem 1rem;">Εμφάνιση Λύσης ▼</button>
+                    <div class="quiz-answer">\${item.explanation}</div>
+                \`;
+                mcqContainer.appendChild(card);
+            });
+        }
+
+        // ----------------------------------------------------
         // 2. Score & Multiple Choice (MCQ/TF) Logic
         // ----------------------------------------------------
         let score = 0;
@@ -150,18 +146,20 @@
 
         // Κρατάμε ποιες ερωτήσεις έχουν ήδη απαντηθεί για να μην μετράει το σκορ διπλά
         const answeredQs = new Set();
-
-        document.querySelectorAll('.mcq-option input').forEach(input => {
-            input.addEventListener('change', function() {
-                const qName = this.name;
-                const card = this.closest('.mcq-card');
+        
+        // Attach click listener to parent to handle dynamically generated radios
+        mcqContainer.addEventListener('change', function(e) {
+            if(e.target && e.target.type === 'radio') {
+                const radio = e.target;
+                const qName = radio.name;
+                const card = radio.closest('.mcq-card');
                 const feedback = card.querySelector('.feedback');
                 const answerBtn = card.querySelector('.show-mcq-answer');
                 
                 // Κλείδωμα των επιλογών σε αυτή την κάρτα
                 card.querySelectorAll('input').forEach(inp => inp.disabled = true);
                 
-                if (this.value === 'correct') {
+                if (radio.value === 'correct') {
                     feedback.innerHTML = 'Σωστή Απάντηση! <span style="font-size:1.5rem;">✔️</span>';
                     feedback.className = 'feedback correct';
                     if (!answeredQs.has(qName)) {
@@ -177,21 +175,22 @@
                 feedback.style.display = 'block';
                 answerBtn.style.display = 'inline-block';
                 answeredQs.add(qName);
-            });
+            }
         });
 
         // "Εμφάνιση Λύσης" κουμπί στα πολλαπλής
-        document.querySelectorAll('.show-mcq-answer').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const ans = this.nextElementSibling;
+        mcqContainer.addEventListener('click', function(e) {
+            if(e.target && e.target.classList.contains('show-mcq-answer')) {
+                const btn = e.target;
+                const ans = btn.nextElementSibling;
                 if(ans.classList.contains('show')) {
                     ans.classList.remove('show');
-                    this.innerText = 'Εμφάνιση Λύσης ▼';
+                    btn.innerText = 'Εμφάνιση Λύσης ▼';
                 } else {
                     ans.classList.add('show');
-                    this.innerText = 'Απόκρυψη Λύσης ▲';
+                    btn.innerText = 'Απόκρυψη Λύσης ▲';
                 }
-            });
+            }
         });
 
         // ----------------------------------------------------
