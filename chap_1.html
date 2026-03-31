@@ -115,22 +115,22 @@
                 let optionsHtml = '';
                 item.options.forEach((opt, oIndex) => {
                     let val = opt.correct ? 'correct' : 'wrong';
-                    optionsHtml += \`
+                    optionsHtml += `
                         <div class="mcq-option">
                             <label>
-                                <input type="radio" name="mcq\${index}" value="\${val}"> \${opt.text}
+                                <input type="radio" name="mcq${index}" value="${val}"> ${opt.text}
                             </label>
                         </div>
-                    \`;
+                    `;
                 });
                 
-                card.innerHTML = \`
-                    <div class="quiz-question">\${item.q}</div>
-                    \${optionsHtml}
+                card.innerHTML = `
+                    <div class="quiz-question">${item.q}</div>
+                    ${optionsHtml}
                     <div class="feedback"></div>
                     <button class="btn-green show-mcq-answer" style="display:none; margin-top:1rem; padding: 0.5rem 1rem;">Εμφάνιση Λύσης ▼</button>
-                    <div class="quiz-answer">\${item.explanation}</div>
-                \`;
+                    <div class="quiz-answer">${item.explanation}</div>
+                `;
                 mcqContainer.appendChild(card);
             });
         }
