@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Κεφάλαιο 2 Ερωτήσεις | Αντώνης Χρονάκης</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="landing.css">
+    <style>
+        .quiz-container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        .quiz-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(124, 179, 66, 0.08); }
+        .quiz-question { font-size: 1.15rem; font-weight: 500; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.6; white-space: pre-wrap; }
+        
+        /* The extracted Word Red answers will appear here */
+        .quiz-answer { display: none; margin-top: 1rem; padding: 1rem; background-color: var(--bg-secondary); border-left: 4px solid var(--accent-green); color: #c00000; white-space: pre-wrap; font-weight: 500;}
+        .quiz-answer.show { display: block; animation: fadeIn 0.3s ease; }
+        
+        .mcq-option { margin: 0.8rem 0; display: flex; align-items: center; font-size: 1.1rem; }
+        .mcq-option input { margin-right: 0.8rem; cursor: pointer; transform: scale(1.2); }
+        .mcq-option label { cursor: pointer; }
+        
+        .score-board { position: sticky; top: 80px; background: var(--bg-color); padding: 1rem; border: 2px solid var(--accent-green); border-radius: 8px; text-align: center; margin-bottom: 2rem; z-index: 100;}
+        .feedback { margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; font-size: 1.1rem; display:none; }
+        .correct { color: #2e7d32; }
+        .incorrect { color: #c62828; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body style="background-color: var(--bg-color);">
+    <header class="landing-header">
+        <div class="nav-container-landing">
+            <a href="index.html" class="logo-landing">Αντώνης Χρονάκης <span class="divider">/</span> <span class="logo-highlight">Χημεία</span></a>
+            <ul class="nav-links-landing">
+                <li><a href="index.html">Αρχική</a></li>
+                <li><a href="edu.html" class="active">Εκπαιδευτικό Υλικό</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="quiz-container">
+        <h1 class="cv-section-title" style="text-align:center; margin-bottom:2rem;">Κεφάλαιο 2</h1>
+        
+        <!-- TABS MENU -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-target="tab-theory-1">Θεωρία 2.1</button>
+            <button class="tab-btn" data-target="tab-theory-2">Θεωρία 2.2</button>
+            <button class="tab-btn" data-target="tab-exercises">Ερωτήσεις Κατανόησης</button>
+            <button class="tab-btn" data-target="tab-mcq">Σ/Λ &amp; Πολλαπλής</button>
+            <button class="tab-btn" data-target="tab-experiments">Πειράματα</button>
+        </div>
+
+        <!-- TAB 1: THEORY 2.1 (Now Default) -->
+        <div id="tab-theory-1" class="tab-content active">
+            <h2 style="color: var(--accent-green); margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Θεωρία 2.1</h2>
+            <div class="pdf-container">
+                <iframe src="https://drive.google.com/file/d/1iK3HS8lFDWhrJSIxqcqdhfVFTJRPIv0l/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+            </div>
+        </div>
+
+        <!-- TAB 2: THEORY 2.2 -->
+        <div id="tab-theory-2" class="tab-content">
+            <h2 style="color: var(--accent-green); margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Θεωρία 2.2</h2>
+            <div class="pdf-container">
+                <iframe src="https://drive.google.com/file/d/17KihzCUYkpCbdV5um_EGs7ayAwYeWLVn/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+            </div>
+        </div>
+
+        <!-- TAB 3: EXERCISES -->
+        <div id="tab-exercises" class="tab-content">
+            <!-- Δυναμικές Ερωτήσεις Ανοιχτού Τύπου (Από το Word) -->
+            <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Ερωτήσεις Κατανόησης</h2>
+            <div id="dynamicQuestions">
+                <!-- Questions loaded via JSON will appear here -->
+            </div>
+        </div>
+
+        <!-- TAB 4: MCQ & QUIZ -->
+        <div id="tab-mcq" class="tab-content">
+            <!-- Στατικές Ερωτήσεις Πολλαπλής / ΣΛ -->
+            <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Πολλαπλής Επιλογής &amp; Σωστό/Λάθος</h2>
+            <div id="mcqContainer">
+                <!-- Questions loaded via JSON will appear here -->
+            </div>
+
+            <!-- Scoreboard & Reset (Moved to Bottom) -->
+            <div class="score-board" style="margin-top: 3rem; background: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); position: relative; top: 0;">
+                <h2 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.5rem;">
+                    Σκορ Πολλαπλής Επιλογής: <strong style="color: var(--accent-green);"><span id="scoreDisplay">0</span> / <span id="totalDisplay">0</span></strong>
+                </h2>
+                <button id="resetBtn" class="btn-green-outline" style="margin-top: 0.5rem; font-size: 0.9rem; padding: 0.5rem 1rem;">Επανέλαβε το τέστ (Reset)</button>
+            </div>
+        </div>
+
+        <!-- TAB 3: EXPERIMENTS -->
+        <div id="tab-experiments" class="tab-content">
+            <h2 style="color: var(--accent-green); margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Εργαστηριακά Πειράματα</h2>
+            <div class="experiments-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <!-- Placeholder Youtube Video -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Πείραμα 1: Τίτλος (Placeholder)</h3>
+                        <p>Δείγμα βίντεο από το εργαστήριο. Θα αντικατασταθεί με το κανονικό βίντεο σύντομα.</p>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <!-- Placeholder Youtube Video -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Πείραμα 2: Τίτλος (Placeholder)</h3>
+                        <p>Δείγμα βίντεο από το εργαστήριο. Θα αντικατασταθεί με το κανονικό βίντεο σύντομα.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="landing-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Αντώνης Χρονάκης</p>
+        </div>
+    </footer>
+
+    <!-- Φόρτωση των εξαχθέντων ερωτήσεων -->
+    <script src="questions.js"></script>
+    <script>
+        // ----------------------------------------------------
+        // 1. Ρύθμιση Δυναμικών Ερωτήσεων (Ανοιχτού Τύπου/Ασκήσεις)
+        // ----------------------------------------------------
+        const dynContainer = document.getElementById('dynamicQuestions');
+        if (typeof chapter2Questions !== 'undefined' && chapter2Questions.length > 0) {
+            chapter2Questions.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'quiz-card';
+                card.innerHTML = `
+                    <div class="quiz-question">${item.q}</div>
+                    <button class="btn-green toggle-answer">Εμφάνιση Απάντησης ▼</button>
+                    <div class="quiz-answer">${item.a}</div>
+                `;
+                dynContainer.appendChild(card);
+            });
+        }
+
+        // Toggle opened answers
+        document.body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('toggle-answer')) {
+                const answerDiv = e.target.nextElementSibling;
+                const isShowing = answerDiv.classList.contains('show');
+                if (isShowing) {
+                    answerDiv.classList.remove('show');
+                    e.target.innerText = 'Εμφάνιση Απάντησης ▼';
+                } else {
+                    answerDiv.classList.add('show');
+                    e.target.innerText = 'Απόκρυψη Απάντησης ▲';
+                }
+            }
+        });
+
+        // ----------------------------------------------------
+        // 1.5 Δυναμική παραγωγή των Πολλαπλής Επιλογής (MCQ)
+        // ----------------------------------------------------
+        const mcqContainer = document.getElementById('mcqContainer');
+        if (typeof chapter2MCQ !== 'undefined' && chapter2MCQ.length > 0) {
+            chapter2MCQ.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'quiz-card mcq-card';
+                let optionsHtml = '';
+                item.options.forEach((opt, oIndex) => {
+                    let val = opt.correct ? 'correct' : 'wrong';
+                    optionsHtml += `
+                        <div class="mcq-option">
+                            <label>
+                                <input type="radio" name="mcq${index}" value="${val}"> ${opt.text}
+                            </label>
+                        </div>
+                    `;
+                });
+                
+                card.innerHTML = `
+                    <div class="quiz-question">${item.q}</div>
+                    ${optionsHtml}
+                    <div class="feedback"></div>
+                    <button class="btn-green show-mcq-answer" style="display:none; margin-top:1rem; padding: 0.5rem 1rem;">Εμφάνιση Λύσης ▼</button>
+                    <div class="quiz-answer">${item.explanation}</div>
+                `;
+                mcqContainer.appendChild(card);
+            });
+        }
+
+        // ----------------------------------------------------
+        // 2. Score & Multiple Choice (MCQ/TF) Logic
+        // ----------------------------------------------------
+        let score = 0;
+        const mcqCards = document.querySelectorAll('.mcq-card');
+        const totalScoreElement = document.getElementById('totalDisplay');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        totalScoreElement.innerText = mcqCards.length;
+
+        // Κρατάμε ποιες ερωτήσεις έχουν ήδη απαντηθεί για να μην μετράει το σκορ διπλά
+        const answeredQs = new Set();
+        
+        // Attach click listener to parent to handle dynamically generated radios
+        mcqContainer.addEventListener('change', function(e) {
+            if(e.target && e.target.type === 'radio') {
+                const radio = e.target;
+                const qName = radio.name;
+                const card = radio.closest('.mcq-card');
+                const feedback = card.querySelector('.feedback');
+                const answerBtn = card.querySelector('.show-mcq-answer');
+                
+                // Κλείδωμα των επιλογών σε αυτή την κάρτα
+                card.querySelectorAll('input').forEach(inp => inp.disabled = true);
+                
+                if (radio.value === 'correct') {
+                    feedback.innerHTML = 'Σωστή Απάντηση! <span style="font-size:1.5rem;">✔️</span>';
+                    feedback.className = 'feedback correct';
+                    if (!answeredQs.has(qName)) {
+                        score++;
+                        scoreDisplay.innerText = score;
+                    }
+                } else {
+                    feedback.innerHTML = 'Λάθος Απάντηση <span style="font-size:1.5rem;">❌</span>';
+                    feedback.className = 'feedback incorrect';
+                }
+                
+                // Δείχνουμε το Κουμπί της πλήρους επεξήγησης/λύσης
+                feedback.style.display = 'block';
+                answerBtn.style.display = 'inline-block';
+                answeredQs.add(qName);
+            }
+        });
+
+        // "Εμφάνιση Λύσης" κουμπί στα πολλαπλής
+        mcqContainer.addEventListener('click', function(e) {
+            if(e.target && e.target.classList.contains('show-mcq-answer')) {
+                const btn = e.target;
+                const ans = btn.nextElementSibling;
+                if(ans.classList.contains('show')) {
+                    ans.classList.remove('show');
+                    btn.innerText = 'Εμφάνιση Λύσης ▼';
+                } else {
+                    ans.classList.add('show');
+                    btn.innerText = 'Απόκρυψη Λύσης ▲';
+                }
+            }
+        });
+
+        // ----------------------------------------------------
+        // 3. Reset Button ("Επανέλαβε το τεστ")
+        // ----------------------------------------------------
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            // Μηδενισμός Σκορ
+            score = 0;
+            scoreDisplay.innerText = score;
+            answeredQs.clear();
+            
+            // Uncheck & Enable ολα τα input στα πολλαπλής που ζήτησε ο χρήστης
+            document.querySelectorAll('.mcq-option input').forEach(input => {
+                input.checked = false;
+                input.disabled = false;
+            });
+            
+            // Απόκρυψη Feedback (Σωστο/Λαθος)
+            document.querySelectorAll('.feedback').forEach(f => {
+                f.style.display = 'none';
+                f.innerText = '';
+            });
+
+            // Απόκρυψη των κουμπιών Λύσης και των Κειμένων Λύσης
+            document.querySelectorAll('.show-mcq-answer').forEach(b => {
+                b.style.display = 'none';
+                b.innerText = 'Εμφάνιση Λύσης ▼';
+            });
+            document.querySelectorAll('.mcq-card .quiz-answer').forEach(ans => ans.classList.remove('show'));
+            
+            // Προαιρετικά: μπορούμε να κρύψουμε και τις απαντήσεις στα ανοιχτού τύπου
+            document.querySelectorAll('#dynamicQuestions .quiz-answer').forEach(ans => ans.classList.remove('show'));
+            document.querySelectorAll('#dynamicQuestions .toggle-answer').forEach(btn => btn.innerText = 'Εμφάνιση Απάντησης ▼');
+        });
+        // ----------------------------------------------------
+        // 4. Tabs Interaction Logic
+        // ----------------------------------------------------
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Show corresponding content
+                const targetId = btn.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+                
+                // Trigger a reflow resize for iframe constraints (fixes bug on some browsers)
+                window.dispatchEvent(new Event('resize'));
+            });
+        });
+    </script>
+</body>
+</html>

@@ -44,7 +44,8 @@
         <!-- TABS MENU -->
         <div class="tabs-container">
             <button class="tab-btn active" data-target="tab-theory">Θεωρία</button>
-            <button class="tab-btn" data-target="tab-exercises">Ασκήσεις</button>
+            <button class="tab-btn" data-target="tab-exercises">Ερωτήσεις Κατανόησης</button>
+            <button class="tab-btn" data-target="tab-mcq">Σ/Λ &amp; Πολλαπλής</button>
             <button class="tab-btn" data-target="tab-experiments">Πειράματα</button>
         </div>
 
@@ -59,13 +60,16 @@
         <!-- TAB 2: EXERCISES -->
         <div id="tab-exercises" class="tab-content">
             <!-- Δυναμικές Ερωτήσεις Ανοιχτού Τύπου (Από το Word) -->
-            <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Ερωτήσεις Θεωρίας &amp; Ασκήσεις</h2>
+            <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Ερωτήσεις Κατανόησης</h2>
             <div id="dynamicQuestions">
                 <!-- Questions loaded via JSON will appear here -->
             </div>
+        </div>
 
+        <!-- TAB 3: MCQ & QUIZ -->
+        <div id="tab-mcq" class="tab-content">
             <!-- Στατικές Ερωτήσεις Πολλαπλής / ΣΛ -->
-            <h2 style="color: var(--accent-green); margin-top: 4rem; margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Πολλαπλής Επιλογής &amp; Σωστό/Λάθος</h2>
+            <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Πολλαπλής Επιλογής &amp; Σωστό/Λάθος</h2>
             <div id="mcqContainer">
                 <!-- Questions loaded via JSON will appear here -->
             </div>
