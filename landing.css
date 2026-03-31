@@ -171,7 +171,7 @@ p {
   line-height: 1.1;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0px;
   color: var(--text-main);
 }
 
