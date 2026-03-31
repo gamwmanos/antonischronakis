@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Κεφάλαιο 4 Ερωτήσεις | Αντώνης Χρονάκης</title>
+    <meta name="description" content="Ερωτήσεις και ασκήσεις Κεφαλαίου 4 Χημείας Α΄ Λυκείου - Αριθμός Οξείδωσης & Χημικοί Τύποι">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="landing.css">
+    <style>
+        .quiz-container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        .quiz-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(124, 179, 66, 0.08); }
+        .quiz-question { font-size: 1.15rem; font-weight: 500; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.6; }
+        .quiz-answer { display: none; margin-top: 1rem; padding: 1rem; background-color: var(--bg-secondary); border-left: 4px solid var(--accent-green); color: #c00000; font-weight: 500; }
+        .quiz-answer.show { display: block; animation: fadeIn 0.3s ease; }
+        .mcq-option { margin: 0.8rem 0; display: flex; align-items: center; font-size: 1.1rem; }
+        .mcq-option input { margin-right: 0.8rem; cursor: pointer; transform: scale(1.2); }
+        .mcq-option label { cursor: pointer; }
+        .feedback { margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; font-size: 1.1rem; display: none; }
+        .correct { color: #2e7d32; }
+        .incorrect { color: #c62828; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body style="background-color: var(--bg-color);">
+    <header class="landing-header">
+        <div class="nav-container-landing">
+            <a href="index.html" class="logo-landing">Αντώνης Χρονάκης <span class="divider">/</span> <span class="logo-highlight">Χημεία</span></a>
+            <ul class="nav-links-landing">
+                <li><a href="index.html">Αρχική</a></li>
+                <li><a href="edu.html" class="active">Εκπαιδευτικό Υλικό</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="quiz-container">
+        <div class="chapter-header">
+            <a href="chap_3.html" class="chapter-nav-btn" title="Προηγούμενο Κεφάλαιο (3)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </a>
+            <h1 class="cv-section-title" style="margin-bottom: 0;">Κεφάλαιο 4</h1>
+            <a href="#" class="chapter-nav-btn disabled" title="Σύντομα Κοντά Σας!">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+
+        <!-- TABS MENU -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-target="main-theory">Θεωρία</button>
+            <button class="tab-btn" data-target="main-exercises">Ασκήσεις</button>
+            <button class="tab-btn" data-target="main-experiments">Πειράματα</button>
+        </div>
+
+        <!-- MAIN TAB 1: THEORY -->
+        <div id="main-theory" class="tab-content active">
+            <div class="sub-tabs-container">
+                <button class="sub-tab-btn active" data-target="sub-theory-1">Θεωρία 4.1</button>
+                <button class="sub-tab-btn" data-target="sub-theory-2">Θεωρία 4.2</button>
+                <button class="sub-tab-btn" data-target="sub-theory-3">Θεωρία 4.3</button>
+                <button class="sub-tab-btn" data-target="sub-theory-4">Θεωρία 4.4</button>
+            </div>
+            <div id="sub-theory-1" class="sub-tab-content active">
+                <div class="pdf-container">
+                    <iframe src="https://drive.google.com/file/d/1ya-uczqLzUhrpbOrDVeVM5LDEsmwVAHs/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+                </div>
+            </div>
+            <div id="sub-theory-2" class="sub-tab-content">
+                <div class="pdf-container">
+                    <iframe src="https://drive.google.com/file/d/1HeHgYhbCZZ2Jr03VuX9XS1ZjYTPhDVvF/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+                </div>
+            </div>
+            <div id="sub-theory-3" class="sub-tab-content">
+                <div class="pdf-container">
+                    <iframe src="https://drive.google.com/file/d/1cn5s70X-CiWKA2uIlUlqPOUfT6Q5i5zG/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+                </div>
+            </div>
+            <div id="sub-theory-4" class="sub-tab-content">
+                <div class="pdf-container">
+                    <iframe src="https://drive.google.com/file/d/1NKx-U2W8HZ9dbRnRkAyH0DHtzesTWMv-/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN TAB 2: EXERCISES -->
+        <div id="main-exercises" class="tab-content">
+            <div class="sub-tabs-container">
+                <button class="sub-tab-btn active" data-target="sub-exercises-1">Ερωτήσεις Κατανόησης</button>
+                <button class="sub-tab-btn" data-target="sub-exercises-2">Σ/Λ &amp; Πολλαπλής</button>
+            </div>
+
+            <div id="sub-exercises-1" class="sub-tab-content active">
+                <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Ερωτήσεις Κατανόησης</h2>
+                <div id="dynamicQuestions"></div>
+            </div>
+
+            <div id="sub-exercises-2" class="sub-tab-content">
+                <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Πολλαπλής Επιλογής &amp; Σωστό/Λάθος</h2>
+                <div id="mcqContainer"></div>
+                <div style="margin-top: 3rem; background: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <h2 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.5rem;">
+                        Σκορ: <strong style="color: var(--accent-green);"><span id="scoreDisplay">0</span> / <span id="totalDisplay">0</span></strong>
+                    </h2>
+                    <button id="resetBtn" class="btn-green-outline" style="margin-top: 0.5rem; font-size: 0.9rem; padding: 0.5rem 1rem;">Επανέλαβε το τέστ (Reset)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN TAB 3: EXPERIMENTS -->
+        <div id="main-experiments" class="tab-content">
+            <h2 style="color: var(--accent-green); margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Εργαστηριακά Πειράματα</h2>
+            <div class="experiments-list">
+                <div class="experiment-row">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info"><h3>Πείραμα 1: Placeholder</h3><p>Το βίντεο πειράματος θα προστεθεί σύντομα.</p></div>
+                </div>
+                <div class="experiment-row">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info"><h3>Πείραμα 2: Placeholder</h3><p>Το βίντεο πειράματος θα προστεθεί σύντομα.</p></div>
+                </div>
+                <div class="experiment-row">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info"><h3>Πείραμα 3: Placeholder</h3><p>Το βίντεο πειράματος θα προστεθεί σύντομα.</p></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="landing-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Αντώνης Χρονάκης</p>
+        </div>
+    </footer>
+
+    <script src="A_LYKEIOU/KEFALAIO_4/askiseis.js"></script>
+    <script>
+        // Strip leading number (e.g. "1. " or "3.2-4. ") but keep greek letter labels (α. β. γ.)
+        function stripNumber(q) {
+            return q.replace(/^\d+[\d.\-]*\.\s*/, '');
+        }
+
+        // 1. Ερωτήσεις Κατανόησης
+        const dynContainer = document.getElementById('dynamicQuestions');
+        if (typeof chapter4Questions !== 'undefined' && chapter4Questions.length > 0) {
+            chapter4Questions.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = 'quiz-card';
+                card.innerHTML = `
+                    <div class="quiz-question">${stripNumber(item.q)}</div>
+                    <button class="btn-green toggle-answer">Εμφάνιση Απάντησης ▼</button>
+                    <div class="quiz-answer">${item.a}</div>
+                `;
+                dynContainer.appendChild(card);
+            });
+        }
+
+        document.body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('toggle-answer')) {
+                const ans = e.target.nextElementSibling;
+                const showing = ans.classList.contains('show');
+                ans.classList.toggle('show', !showing);
+                e.target.innerText = showing ? 'Εμφάνιση Απάντησης ▼' : 'Απόκρυψη Απάντησης ▲';
+            }
+        });
+
+        // 2. MCQ
+        const mcqContainer = document.getElementById('mcqContainer');
+        if (typeof chapter4MCQ !== 'undefined' && chapter4MCQ.length > 0) {
+            chapter4MCQ.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'quiz-card mcq-card';
+                let optionsHtml = item.options.map((opt) => {
+                    let val = opt.correct ? 'correct' : 'wrong';
+                    return `<div class="mcq-option"><label><input type="radio" name="mcq${index}" value="${val}"> ${opt.text}</label></div>`;
+                }).join('');
+                card.innerHTML = `
+                    <div class="quiz-question">${stripNumber(item.q)}</div>
+                    ${optionsHtml}
+                    <div class="feedback"></div>
+                    <button class="btn-green show-mcq-answer" style="display:none; margin-top:1rem; padding:0.5rem 1rem;">Εμφάνιση Λύσης ▼</button>
+                    <div class="quiz-answer">${item.explanation}</div>
+                `;
+                mcqContainer.appendChild(card);
+            });
+        }
+
+        // 3. Σκορ
+        let score = 0;
+        const answeredQs = new Set();
+        document.getElementById('totalDisplay').innerText = document.querySelectorAll('.mcq-card').length;
+        const scoreDisplay = document.getElementById('scoreDisplay');
+
+        mcqContainer.addEventListener('change', (e) => {
+            if (e.target && e.target.type === 'radio') {
+                const radio = e.target;
+                const card = radio.closest('.mcq-card');
+                const feedback = card.querySelector('.feedback');
+                const answerBtn = card.querySelector('.show-mcq-answer');
+                card.querySelectorAll('input').forEach(i => i.disabled = true);
+                if (radio.value === 'correct') {
+                    feedback.innerHTML = 'Σωστή Απάντηση! <span style="font-size:1.5rem;">✔️</span>';
+                    feedback.className = 'feedback correct';
+                    if (!answeredQs.has(radio.name)) { score++; scoreDisplay.innerText = score; }
+                } else {
+                    feedback.innerHTML = 'Λάθος Απάντηση <span style="font-size:1.5rem;">❌</span>';
+                    feedback.className = 'feedback incorrect';
+                }
+                feedback.style.display = 'block';
+                answerBtn.style.display = 'inline-block';
+                answeredQs.add(radio.name);
+            }
+        });
+
+        mcqContainer.addEventListener('click', (e) => {
+            if (e.target && e.target.classList.contains('show-mcq-answer')) {
+                const ans = e.target.nextElementSibling;
+                const showing = ans.classList.contains('show');
+                ans.classList.toggle('show', !showing);
+                e.target.innerText = showing ? 'Εμφάνιση Λύσης ▼' : 'Απόκρυψη Λύσης ▲';
+            }
+        });
+
+        // 4. Reset
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            score = 0; scoreDisplay.innerText = 0; answeredQs.clear();
+            document.querySelectorAll('.mcq-option input').forEach(i => { i.checked = false; i.disabled = false; });
+            document.querySelectorAll('.feedback').forEach(f => { f.style.display = 'none'; f.innerText = ''; });
+            document.querySelectorAll('.show-mcq-answer').forEach(b => { b.style.display = 'none'; b.innerText = 'Εμφάνιση Λύσης ▼'; });
+            document.querySelectorAll('.quiz-answer').forEach(a => a.classList.remove('show'));
+            document.querySelectorAll('.toggle-answer').forEach(b => b.innerText = 'Εμφάνιση Απάντησης ▼');
+        });
+
+        // 5. Tabs
+        document.querySelectorAll('.tabs-container > .tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tabs-container > .tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('main > .tab-content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.getAttribute('data-target')).classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.sub-tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const parent = btn.closest('.tab-content');
+                parent.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
+                parent.querySelectorAll('.sub-tab-content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.getAttribute('data-target')).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
