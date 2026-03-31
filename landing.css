@@ -163,14 +163,15 @@ p {
   padding: var(--spacing-md) 0;
 }
 
-/* Huge letters like Pinker's site */
+/* Huge letters like Pinker's site - Elegant Montserrat uppercase */
 .hero-title {
-  font-size: 4.5rem;
-  font-weight: 800;
-  line-height: 1.05;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.1;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: 0.18em;
   color: var(--text-main);
 }
 
