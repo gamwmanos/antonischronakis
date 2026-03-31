@@ -986,3 +986,46 @@ p {
   .experiment-row .video-info { padding: 1.5rem; }
 }
 
+
+/* Chapter Navigation */
+.chapter-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chapter-nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  color: var(--accent-green);
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.chapter-nav-btn:hover {
+  background-color: var(--accent-green);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(124, 179, 66, 0.2);
+}
+
+.chapter-nav-btn.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .chapter-header {
+    gap: 1rem;
+  }
+}
+
