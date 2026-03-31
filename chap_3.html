@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Κεφάλαιο 2 Ερωτήσεις | Αντώνης Χρονάκης</title>
+    <title>Κεφάλαιο 3 Ερωτήσεις | Αντώνης Χρονάκης</title>
+    <meta name="description" content="Ερωτήσεις και ασκήσεις Κεφαλαίου 3 Χημείας Α΄ Λυκείου - Χημικός Δεσμός και Διαμοριακές Δυνάμεις">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="landing.css">
@@ -11,17 +12,13 @@
         .quiz-container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
         .quiz-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(124, 179, 66, 0.08); }
         .quiz-question { font-size: 1.15rem; font-weight: 500; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.6; white-space: pre-wrap; }
-        
-        /* The extracted Word Red answers will appear here */
-        .quiz-answer { display: none; margin-top: 1rem; padding: 1rem; background-color: var(--bg-secondary); border-left: 4px solid var(--accent-green); color: #c00000; white-space: pre-wrap; font-weight: 500;}
+        .quiz-answer { display: none; margin-top: 1rem; padding: 1rem; background-color: var(--bg-secondary); border-left: 4px solid var(--accent-green); color: #c00000; white-space: pre-wrap; font-weight: 500; }
         .quiz-answer.show { display: block; animation: fadeIn 0.3s ease; }
-        
         .mcq-option { margin: 0.8rem 0; display: flex; align-items: center; font-size: 1.1rem; }
         .mcq-option input { margin-right: 0.8rem; cursor: pointer; transform: scale(1.2); }
         .mcq-option label { cursor: pointer; }
-        
-        .score-board { position: sticky; top: 80px; background: var(--bg-color); padding: 1rem; border: 2px solid var(--accent-green); border-radius: 8px; text-align: center; margin-bottom: 2rem; z-index: 100;}
-        .feedback { margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; font-size: 1.1rem; display:none; }
+        .score-board { position: sticky; top: 80px; background: var(--bg-color); padding: 1rem; border: 2px solid var(--accent-green); border-radius: 8px; text-align: center; margin-bottom: 2rem; z-index: 100; }
+        .feedback { margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; font-size: 1.1rem; display: none; }
         .correct { color: #2e7d32; }
         .incorrect { color: #c62828; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
@@ -40,14 +37,15 @@
 
     <main class="quiz-container">
         <div class="chapter-header">
-            <a href="chap_1.html" class="chapter-nav-btn" title="Προηγούμενο Κεφάλαιο (1)">
+            <a href="chap_2.html" class="chapter-nav-btn" title="Προηγούμενο Κεφάλαιο (2)">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             </a>
-            <h1 class="cv-section-title" style="margin-bottom: 0;">Κεφάλαιο 2</h1>
-            <a href="chap_3.html" class="chapter-nav-btn" title="Επόμενο Κεφάλαιο (3)">
+            <h1 class="cv-section-title" style="margin-bottom: 0;">Κεφάλαιο 3</h1>
+            <a href="#" class="chapter-nav-btn disabled" title="Σύντομα Κοντά Σας!">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
+
         <!-- TABS MENU -->
         <div class="tabs-container">
             <button class="tab-btn active" data-target="main-theory">Θεωρία</button>
@@ -58,18 +56,17 @@
         <!-- MAIN TAB 1: THEORY -->
         <div id="main-theory" class="tab-content active">
             <div class="sub-tabs-container">
-                <button class="sub-tab-btn active" data-target="sub-theory-1">Θεωρία 2.1</button>
-                <button class="sub-tab-btn" data-target="sub-theory-2">Θεωρία 2.2</button>
+                <button class="sub-tab-btn active" data-target="sub-theory-1">Θεωρία 3.1</button>
+                <button class="sub-tab-btn" data-target="sub-theory-2">Θεωρία 3.2</button>
             </div>
-            
             <div id="sub-theory-1" class="sub-tab-content active">
                 <div class="pdf-container">
-                    <iframe src="https://drive.google.com/file/d/1iK3HS8lFDWhrJSIxqcqdhfVFTJRPIv0l/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+                    <iframe src="https://drive.google.com/file/d/1-poHZXg8qJ4yO_qsiDgUSpXlEji4Lpkg/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
                 </div>
             </div>
             <div id="sub-theory-2" class="sub-tab-content">
                 <div class="pdf-container">
-                    <iframe src="https://drive.google.com/file/d/17KihzCUYkpCbdV5um_EGs7ayAwYeWLVn/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
+                    <iframe src="https://drive.google.com/file/d/1j1gsq3xJTF6zeAH_QyFa7YPaUBx-mb02/preview" class="pdf-frame" allow="autoplay" width="640" height="480"></iframe>
                 </div>
             </div>
         </div>
@@ -80,21 +77,19 @@
                 <button class="sub-tab-btn active" data-target="sub-exercises-1">Ερωτήσεις Κατανόησης</button>
                 <button class="sub-tab-btn" data-target="sub-exercises-2">Σ/Λ &amp; Πολλαπλής</button>
             </div>
-            
+
             <div id="sub-exercises-1" class="sub-tab-content active">
                 <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Ερωτήσεις Κατανόησης</h2>
                 <div id="dynamicQuestions">
-                    <!-- Questions loaded via JSON will appear here -->
+                    <!-- Questions loaded via JS -->
                 </div>
             </div>
-            
+
             <div id="sub-exercises-2" class="sub-tab-content">
                 <h2 style="color: var(--accent-green); margin-bottom:1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Πολλαπλής Επιλογής &amp; Σωστό/Λάθος</h2>
                 <div id="mcqContainer">
-                    <!-- Questions loaded via JSON will appear here -->
+                    <!-- MCQ loaded via JS -->
                 </div>
-
-                <!-- Scoreboard & Reset (Moved to Bottom) -->
                 <div class="score-board" style="margin-top: 3rem; background: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); position: relative; top: 0;">
                     <h2 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 0.5rem;">
                         Σκορ Πολλαπλής Επιλογής: <strong style="color: var(--accent-green);"><span id="scoreDisplay">0</span> / <span id="totalDisplay">0</span></strong>
@@ -108,24 +103,13 @@
         <div id="main-experiments" class="tab-content">
             <h2 style="color: var(--accent-green); margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">Εργαστηριακά Πειράματα</h2>
             <div class="experiments-list">
-                <!-- Video 1 -->
                 <div class="experiment-row">
                     <div class="video-container">
                         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
                     </div>
                     <div class="video-info">
-                        <h3>Πείραμα 1: Προσομοίωση Αντίδρασης (Placeholder)</h3>
-                        <p>Αυτό είναι ένα τυχαίο ενδεικτικό βίντεο. Εδώ βλέπουμε τη χημική αντίδραση και παρατηρούμε τις αλλαγές που συμβαίνουν στο διάλυμα κατά τη διάρκεια της ανάμειξης.</p>
-                    </div>
-                </div>
-                <!-- Video 2 - Reversed layout -->
-                <div class="experiment-row reverse">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3>Πείραμα 2: Έλεγχος Θερμοκρασίας (Placeholder)</h3>
-                        <p>Ένα ακόμη τυχαίο βίντεο πειράματος. Σε αυτό το σημείο παρακολουθούμε την επίδραση της θερμοκρασίας στην ταχύτητα της αντίδρασης και μετράμε τον διαρκή χρόνο.</p>
+                        <h3>Πείραμα 1: Placeholder</h3>
+                        <p>Το βίντεο πειράματος θα προστεθεί σύντομα.</p>
                     </div>
                 </div>
             </div>
@@ -138,15 +122,12 @@
         </div>
     </footer>
 
-    <!-- Φόρτωση των εξαχθέντων ερωτήσεων -->
-    <script src="questions.js"></script>
+    <script src="A_LYKEIOU/KEFALAIO_3/askiseis.js"></script>
     <script>
-        // ----------------------------------------------------
-        // 1. Ρύθμιση Δυναμικών Ερωτήσεων (Ανοιχτού Τύπου/Ασκήσεις)
-        // ----------------------------------------------------
+        // 1. Ερωτήσεις Κατανόησης
         const dynContainer = document.getElementById('dynamicQuestions');
-        if (typeof chapter2Questions !== 'undefined' && chapter2Questions.length > 0) {
-            chapter2Questions.forEach((item, index) => {
+        if (typeof chapter3Questions !== 'undefined' && chapter3Questions.length > 0) {
+            chapter3Questions.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.className = 'quiz-card';
                 card.innerHTML = `
@@ -158,7 +139,6 @@
             });
         }
 
-        // Toggle opened answers
         document.body.addEventListener('click', (e) => {
             if (e.target.classList.contains('toggle-answer')) {
                 const answerDiv = e.target.nextElementSibling;
@@ -173,12 +153,10 @@
             }
         });
 
-        // ----------------------------------------------------
-        // 1.5 Δυναμική παραγωγή των Πολλαπλής Επιλογής (MCQ)
-        // ----------------------------------------------------
+        // 2. MCQ
         const mcqContainer = document.getElementById('mcqContainer');
-        if (typeof chapter2MCQ !== 'undefined' && chapter2MCQ.length > 0) {
-            chapter2MCQ.forEach((item, index) => {
+        if (typeof chapter3MCQ !== 'undefined' && chapter3MCQ.length > 0) {
+            chapter3MCQ.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.className = 'quiz-card mcq-card';
                 let optionsHtml = '';
@@ -192,7 +170,6 @@
                         </div>
                     `;
                 });
-                
                 card.innerHTML = `
                     <div class="quiz-question">${item.q}</div>
                     ${optionsHtml}
@@ -204,55 +181,41 @@
             });
         }
 
-        // ----------------------------------------------------
-        // 2. Score & Multiple Choice (MCQ/TF) Logic
-        // ----------------------------------------------------
+        // 3. Σκορ
         let score = 0;
         const mcqCards = document.querySelectorAll('.mcq-card');
         const totalScoreElement = document.getElementById('totalDisplay');
         const scoreDisplay = document.getElementById('scoreDisplay');
         totalScoreElement.innerText = mcqCards.length;
-
-        // Κρατάμε ποιες ερωτήσεις έχουν ήδη απαντηθεί για να μην μετράει το σκορ διπλά
         const answeredQs = new Set();
-        
-        // Attach click listener to parent to handle dynamically generated radios
+
         mcqContainer.addEventListener('change', function(e) {
-            if(e.target && e.target.type === 'radio') {
+            if (e.target && e.target.type === 'radio') {
                 const radio = e.target;
                 const qName = radio.name;
                 const card = radio.closest('.mcq-card');
                 const feedback = card.querySelector('.feedback');
                 const answerBtn = card.querySelector('.show-mcq-answer');
-                
-                // Κλείδωμα των επιλογών σε αυτή την κάρτα
                 card.querySelectorAll('input').forEach(inp => inp.disabled = true);
-                
                 if (radio.value === 'correct') {
                     feedback.innerHTML = 'Σωστή Απάντηση! <span style="font-size:1.5rem;">✔️</span>';
                     feedback.className = 'feedback correct';
-                    if (!answeredQs.has(qName)) {
-                        score++;
-                        scoreDisplay.innerText = score;
-                    }
+                    if (!answeredQs.has(qName)) { score++; scoreDisplay.innerText = score; }
                 } else {
                     feedback.innerHTML = 'Λάθος Απάντηση <span style="font-size:1.5rem;">❌</span>';
                     feedback.className = 'feedback incorrect';
                 }
-                
-                // Δείχνουμε το Κουμπί της πλήρους επεξήγησης/λύσης
                 feedback.style.display = 'block';
                 answerBtn.style.display = 'inline-block';
                 answeredQs.add(qName);
             }
         });
 
-        // "Εμφάνιση Λύσης" κουμπί στα πολλαπλής
         mcqContainer.addEventListener('click', function(e) {
-            if(e.target && e.target.classList.contains('show-mcq-answer')) {
+            if (e.target && e.target.classList.contains('show-mcq-answer')) {
                 const btn = e.target;
                 const ans = btn.nextElementSibling;
-                if(ans.classList.contains('show')) {
+                if (ans.classList.contains('show')) {
                     ans.classList.remove('show');
                     btn.innerText = 'Εμφάνιση Λύσης ▼';
                 } else {
@@ -262,74 +225,38 @@
             }
         });
 
-        // ----------------------------------------------------
-        // 3. Reset Button ("Επανέλαβε το τεστ")
-        // ----------------------------------------------------
+        // 4. Reset
         document.getElementById('resetBtn').addEventListener('click', () => {
-            // Μηδενισμός Σκορ
             score = 0;
             scoreDisplay.innerText = score;
             answeredQs.clear();
-            
-            // Uncheck & Enable ολα τα input στα πολλαπλής που ζήτησε ο χρήστης
-            document.querySelectorAll('.mcq-option input').forEach(input => {
-                input.checked = false;
-                input.disabled = false;
-            });
-            
-            // Απόκρυψη Feedback (Σωστο/Λαθος)
-            document.querySelectorAll('.feedback').forEach(f => {
-                f.style.display = 'none';
-                f.innerText = '';
-            });
-
-            // Απόκρυψη των κουμπιών Λύσης και των Κειμένων Λύσης
-            document.querySelectorAll('.show-mcq-answer').forEach(b => {
-                b.style.display = 'none';
-                b.innerText = 'Εμφάνιση Λύσης ▼';
-            });
+            document.querySelectorAll('.mcq-option input').forEach(input => { input.checked = false; input.disabled = false; });
+            document.querySelectorAll('.feedback').forEach(f => { f.style.display = 'none'; f.innerText = ''; });
+            document.querySelectorAll('.show-mcq-answer').forEach(b => { b.style.display = 'none'; b.innerText = 'Εμφάνιση Λύσης ▼'; });
             document.querySelectorAll('.mcq-card .quiz-answer').forEach(ans => ans.classList.remove('show'));
-            
-            // Προαιρετικά: μπορούμε να κρύψουμε και τις απαντήσεις στα ανοιχτού τύπου
             document.querySelectorAll('#dynamicQuestions .quiz-answer').forEach(ans => ans.classList.remove('show'));
             document.querySelectorAll('#dynamicQuestions .toggle-answer').forEach(btn => btn.innerText = 'Εμφάνιση Απάντησης ▼');
         });
-        // ----------------------------------------------------
-        // 4. Tabs Interaction Logic
-        // ----------------------------------------------------
+
+        // 5. Tabs
         const tabBtns = document.querySelectorAll('.tabs-container > .tab-btn');
         const tabContents = document.querySelectorAll('main > .tab-content');
-
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
                 tabBtns.forEach(b => b.classList.remove('active'));
                 tabContents.forEach(c => c.classList.remove('active'));
-
-                // Add active class to clicked button
                 btn.classList.add('active');
-
-                // Show corresponding content
-                const targetId = btn.getAttribute('data-target');
-                document.getElementById(targetId).classList.add('active');
-                
-                // Trigger a reflow resize for iframe constraints
+                document.getElementById(btn.getAttribute('data-target')).classList.add('active');
                 window.dispatchEvent(new Event('resize'));
             });
         });
 
-        // Sub tabs
         const subTabBtns = document.querySelectorAll('.sub-tab-btn');
-        
         subTabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const parentContainer = btn.closest('.tab-content');
-                const siblingBtns = parentContainer.querySelectorAll('.sub-tab-btn');
-                const siblingContents = parentContainer.querySelectorAll('.sub-tab-content');
-                
-                siblingBtns.forEach(b => b.classList.remove('active'));
-                siblingContents.forEach(c => c.classList.remove('active'));
-                
+                parentContainer.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
+                parentContainer.querySelectorAll('.sub-tab-content').forEach(c => c.classList.remove('active'));
                 btn.classList.add('active');
                 document.getElementById(btn.getAttribute('data-target')).classList.add('active');
                 window.dispatchEvent(new Event('resize'));
