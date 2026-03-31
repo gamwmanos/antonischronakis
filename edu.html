@@ -3,36 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Εκπαιδευτικό Υλικό | Αντώνης Χρονάκης - Χημικός</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Εκπαιδευτικό Υλικό | Αντώνης Χρονάκης</title>
+    <!-- Using Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Χρονάκης / Χημεία</a>
-            <ul class="nav-links">
+    <header class="landing-header">
+        <div class="nav-container-landing">
+            <a href="index.html" class="logo-landing">Αντώνης Χρονάκης <span class="divider">/</span> <span class="logo-highlight">Χημεία</span></a>
+            <ul class="nav-links-landing">
                 <li><a href="index.html">Αρχική</a></li>
+                <li><a href="index.html#books">Βιβλία</a></li>
                 <li><a href="bio.html">Βιογραφικό</a></li>
                 <li><a href="edu.html" class="active">Εκπαιδευτικό Υλικό</a></li>
                 <li><a href="contact.html">Επικοινωνία</a></li>
             </ul>
         </div>
     </header>
-    <main>
-        <h1 class="page-title">Επιλογή Τάξης</h1>
-        <div class="card-grid" style="justify-content: center;">
-            <div class="card" style="max-width: 350px;">
-                <h3>Α' Λυκείου</h3>
-                <p>Θεωρία, Ασκήσεις και Πειράματα για τη Χημεία της Α' Λυκείου.</p>
-                <br>
-                <a href="class_a.html" class="btn">Μετάβαση  &rarr;</a>
+
+    <main style="padding-bottom: 4rem;">
+        <div class="bio-hero-banner" style="text-align: center;">
+            <div class="container">
+                <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0;">Εκπαιδευτικο Υλικο</h1>
+                <p class="hero-subtitle" style="color: var(--text-light); letter-spacing: 2px;">ΕΠΙΛΟΓΗ ΤΑΞΗΣ</p>
             </div>
-            <!-- Future classes can be added here -->
+        </div>
+
+        <div class="container">
+            <div class="books-grid" style="margin-top: 3rem;">
+                <!-- Α' Λυκείου -->
+                <div class="book-card">
+                    <div class="book-cover-placeholder" style="height: 200px;">
+                        <span>Α'</span><small>Λυκείου</small>
+                    </div>
+                    <h3>Χημεία Α' Λυκείου</h3>
+                    <p class="book-desc">Θεωρία, αναλυτικές λυμένες ασκήσεις και πειράματα.</p>
+                    <a href="class_a.html" class="btn-green">Είσοδος</a>
+                </div>
+                <!-- Β' Γυμνασίου -->
+                <div class="book-card">
+                    <div class="book-cover-placeholder" style="height: 200px;">
+                        <span>Β'</span><small>Γυμνασίου</small>
+                    </div>
+                    <h3>Χημεία Β' Γυμνασίου</h3>
+                    <p class="book-desc">Εισαγωγή στη Χημεία με πλούσια εικονογράφηση.</p>
+                    <a href="#" class="btn-green-outline">Προσεχώς</a>
+                </div>
+                <!-- Γ' Γυμνασίου -->
+                <div class="book-card">
+                    <div class="book-cover-placeholder" style="height: 200px;">
+                        <span>Γ'</span><small>Γυμνασίου</small>
+                    </div>
+                    <h3>Χημεία Γ' Γυμνασίου</h3>
+                    <p class="book-desc">Εμβάθυνση στις χημικές αντιδράσεις και ενώσεις.</p>
+                    <a href="#" class="btn-green-outline">Προσεχώς</a>
+                </div>
+            </div>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2026 Αντώνης Χρονάκης. All rights reserved.</p>
+
+    <footer class="landing-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Αντώνης Χρονάκης</p>
+            <div class="footer-socials">
+                <a href="contact.html" title="Email" class="footer-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+        </div>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>
