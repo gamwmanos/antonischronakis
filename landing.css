@@ -4,7 +4,8 @@
   Inspiration: Minimal, typography-driven, academic
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
 
 :root {
   /* Green-Yellow (Πρασινοκίτρινη) Palette */
@@ -16,7 +17,7 @@
   --accent-green-hover: #689f38;
   --border-color: #dcedc8;
   --font-main: 'Inter', sans-serif;
-  --font-title: 'Montserrat', sans-serif;
+  --font-title: 'Proxima Nova', sans-serif;
   
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
