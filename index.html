@@ -134,6 +134,21 @@
                 window.location.href = url;
             }, 600);
         }
+
+        // Close book if the user presses the back button 
+        // (removes the 'is-open' class when the page is pulled from cache)
+        window.addEventListener('pageshow', function (event) {
+            // event.persisted is true if the page was restored from the Back-Forward cache
+            if (event.persisted) {
+                const openBooks = document.querySelectorAll('.book-3d-wrapper.is-open');
+                openBooks.forEach(el => el.classList.remove('is-open'));
+            }
+            // As a fallback for some older mobile browsers, just remove the class unconditionally
+            else {
+                const openBooks = document.querySelectorAll('.book-3d-wrapper.is-open');
+                openBooks.forEach(el => el.classList.remove('is-open'));
+            }
+        });
     </script>
 </body>
 </html>
