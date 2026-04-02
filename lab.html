@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Lab - Αποθήκη | Αντώνης Χρονάκης</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="lab.css">
+</head>
+<body id="top">
+    <!-- HEADER -->
+    <header class="landing-header">
+        <div class="nav-container-landing">
+            <a href="index.html" class="logo-landing">Αντώνης Χρονάκης <span class="divider">/</span> <span class="logo-highlight">Χημεία</span></a>
+            <ul class="nav-links-landing">
+                <li><a href="index.html">Αρχική</a></li>
+                <li><a href="bio.html">Βιογραφικό</a></li>
+                <li><a href="edu.html">Εκπαιδευτικό Υλικό</a></li>
+                <li><a href="lab.html" class="active">Εργαστήριο</a></li>
+                <li><a href="contact.html">Επικοινωνία</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- TOP HUD: Inventory & Instruments -->
+    <section class="lab-hud">
+        <div class="hud-panel hud-left">
+            <!-- VIAL SPAWNER (Dropdown) -->
+            <div class="inventory-spawner">
+                <label>🛒 Προμήθειες:</label>
+                <div class="spawner-controls">
+                    <select id="ingredient-select">
+                        <option value="red">Κόκκινο ( Ισχυρό Οξύ )</option>
+                        <option value="blue">Μπλε ( Ισχυρή Βάση )</option>
+                        <option value="yellow">Κίτρινο ( Ήπιο Οξύ )</option>
+                        <option value="green">Πράσινο ( Ήπια Βάση )</option>
+                        <option value="clear">Απιονισμένο Νερό</option>
+                    </select>
+                    <button id="add-vial-btn" class="btn-spawn">➕ Στο Ράφι</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hud-panel hud-center">
+            <!-- Instruments -->
+            <div class="hud-item temp-ctrl">
+                <label>🌡️ <span id="temp-val">20</span>°C</label>
+                <input type="range" id="temp-slider" min="0" max="100" value="20" class="hud-slider">
+            </div>
+            <div class="hud-item ph-ctrl">
+                <label>🧪 pH: <span id="ph-display" class="ph-hud-display">7.0</span></label>
+                <div class="ph-scale">
+                    <div class="ph-gradient"></div>
+                    <div class="ph-indicator-arrow" id="ph-arrow" style="left: 50%;">▼</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hud-panel hud-right">
+            <!-- Action Buttons -->
+            <button class="btn-clear" id="reset-workspace">🧹 Καθαρισμός</button>
+            <button class="btn-mix" id="finalize-mix">💾 Καταγραφή &amp; Εμφιάλωση</button>
+        </div>
+    </section>
+
+    <!-- THE ROOM -->
+    <main class="lab-room">
+        <div class="room-wall">
+            
+            <!-- LEFT SHELVES AREA (Inventory) -->
+            <div class="multi-shelves-container left-shelves" id="shelves-left">
+                <!-- Shelf 1 -->
+                <div class="wooden-shelf">
+                    <div class="shelf-surface"></div>
+                    <div class="shelf-slots-wrap">
+                        <div class="shelf-slot" data-slot-id="1"></div>
+                        <div class="shelf-slot" data-slot-id="2"></div>
+                        <div class="shelf-slot" data-slot-id="3"></div>
+                        <div class="shelf-slot" data-slot-id="4"></div>
+                        <div class="shelf-slot" data-slot-id="5"></div>
+                    </div>
+                </div>
+                <!-- Shelf 2 -->
+                <div class="wooden-shelf">
+                    <div class="shelf-surface"></div>
+                    <div class="shelf-slots-wrap">
+                        <div class="shelf-slot" data-slot-id="6"></div>
+                        <div class="shelf-slot" data-slot-id="7"></div>
+                        <div class="shelf-slot" data-slot-id="8"></div>
+                        <div class="shelf-slot" data-slot-id="9"></div>
+                        <div class="shelf-slot" data-slot-id="10"></div>
+                    </div>
+                </div>
+                <!-- Shelf 3 -->
+                <div class="wooden-shelf">
+                    <div class="shelf-surface"></div>
+                    <div class="shelf-slots-wrap">
+                        <div class="shelf-slot" data-slot-id="11"></div>
+                        <div class="shelf-slot" data-slot-id="12"></div>
+                        <div class="shelf-slot" data-slot-id="13"></div>
+                        <div class="shelf-slot" data-slot-id="14"></div>
+                        <div class="shelf-slot" data-slot-id="15"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SHELVES AREA (Inventory) -->
+            <div class="multi-shelves-container right-shelves" id="shelves-right">
+                <!-- Shelf 4 -->
+                <div class="wooden-shelf">
+                    <div class="shelf-surface"></div>
+                    <div class="shelf-slots-wrap">
+                        <div class="shelf-slot" data-slot-id="16"></div>
+                        <div class="shelf-slot" data-slot-id="17"></div>
+                        <div class="shelf-slot" data-slot-id="18"></div>
+                        <div class="shelf-slot" data-slot-id="19"></div>
+                        <div class="shelf-slot" data-slot-id="20"></div>
+                    </div>
+                </div>
+                <!-- Shelf 5 -->
+                <div class="wooden-shelf">
+                    <div class="shelf-surface"></div>
+                    <div class="shelf-slots-wrap">
+                        <div class="shelf-slot" data-slot-id="21"></div>
+                        <div class="shelf-slot" data-slot-id="22"></div>
+                        <div class="shelf-slot" data-slot-id="23"></div>
+                        <div class="shelf-slot" data-slot-id="24"></div>
+                        <div class="shelf-slot" data-slot-id="25"></div>
+                    </div>
+                </div>
+                <!-- Shelf 6 -->
+                <div class="wooden-shelf">
+                    <div class="shelf-surface"></div>
+                    <div class="shelf-slots-wrap">
+                        <div class="shelf-slot" data-slot-id="26"></div>
+                        <div class="shelf-slot" data-slot-id="27"></div>
+                        <div class="shelf-slot" data-slot-id="28"></div>
+                        <div class="shelf-slot" data-slot-id="29"></div>
+                        <div class="shelf-slot" data-slot-id="30"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THE WOODEN DESK -->
+            <div class="wooden-desk">
+                <div class="desk-surface"></div>
+                <div class="desk-front"></div>
+                
+                <div class="desk-items">
+                    <!-- The Stand & Flask -->
+                    <div class="workstation-center">
+                        <!-- Background Stand/Pole -->
+                        <div class="retort-stand-pole"></div>
+                        <div class="retort-stand-clamp"></div>
+                        <div class="retort-stand-base"></div>
+
+                        <!-- Drop Zone Flask (Sitting on clamp/stand) -->
+                        <div class="flask-drop-zone" id="flask-drop-zone">
+                            <svg class="flask-svg" viewBox="0 0 200 350" preserveAspectRatio="xMidYMax meet">
+                                <defs>
+                                    <clipPath id="flask-clip">
+                                        <path d="M 80,40 L 120,40 L 120,130 L 190,300 A 25 25 0 0 1 170,330 L 30,330 A 25 25 0 0 1 10,300 L 80,130 Z"/>
+                                    </clipPath>
+                                    <linearGradient id="glass-shine" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="rgba(255,255,255,0.8)"/>
+                                        <stop offset="25%" stop-color="rgba(255,255,255,0.1)"/>
+                                        <stop offset="75%" stop-color="rgba(255,255,255,0.0)"/>
+                                        <stop offset="100%" stop-color="rgba(255,255,255,0.3)"/>
+                                    </linearGradient>
+                                </defs>
+                                <path class="flask-stroke" d="M 80,40 L 120,40 L 120,130 L 190,300 A 25 25 0 0 1 170,330 L 30,330 A 25 25 0 0 1 10,300 L 80,130 Z" fill="rgba(255,255,255,0.3)" stroke="rgba(200,200,200,0.8)" stroke-width="6" stroke-linejoin="round"/>
+                                
+                                <g clip-path="url(#flask-clip)">
+                                    <rect id="flask-liquid-rect" class="flask-liquid" x="0" y="300" width="200" height="300" fill="transparent" />
+                                </g>
+
+                                <path d="M 80,40 L 120,40 L 120,130 L 190,300 A 25 25 0 0 1 170,330 L 30,330 A 25 25 0 0 1 10,300 L 80,130 Z" fill="url(#glass-shine)" pointer-events="none"/>
+                                <ellipse cx="100" cy="40" rx="25" ry="8" fill="rgba(255,255,255,0.2)" stroke="rgba(200,200,200,0.9)" stroke-width="4"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Burner Tube (Under the flask) -->
+                        <div class="bunsen-burner" id="burner">
+                            <div class="burner-flame"></div>
+                        </div>
+                    </div>
+
+                    </div> <!-- /desk-items -->
+            </div> <!-- /wooden-desk -->
+
+            <!-- Right Side: Chemist Placeholder Image -->
+            <div class="chemist-avatar-wrap">
+                <div class="speech-bubble" id="chemist-speech">
+                    Έτοιμοι για πειράματα!
+                </div>
+                <!-- Placeholder Image. Change src to your actual image -->
+                <img src="https://via.placeholder.com/250x300/e9f5d8/7cb342?text=Professor+Photo" alt="Chemist" class="chemist-image" id="chemist-img">
+            </div>
+            
+        </div> <!-- /room-wall -->
+    </main>
+
+    <footer class="landing-footer" style="position: relative; z-index: 10;">
+        <div class="container footer-content">
+            <p>&copy; 2026 Αντώνης Χρονάκης</p>
+        </div>
+    </footer>
+
+    <script src="lab.js"></script>
+</body>
+</html>

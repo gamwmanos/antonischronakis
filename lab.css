@@ -1,0 +1,530 @@
+/* Wooden Virtual Lab Styles (Rev 4) */
+body {
+    background-color: var(--bg-color, #f6fcee);
+    overflow-x: hidden;
+}
+
+/* ==================
+   TOP HUD PANEL
+   ================== */
+.lab-hud {
+    position: sticky;
+    top: 75px; 
+    z-index: 500;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid var(--border-color, #dcedc8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 15px rgba(124, 179, 66, 0.1);
+}
+
+.hud-panel {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hud-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.hud-item label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main, #2b331f);
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Inventory Spawner UI */
+.inventory-spawner {
+    display: flex;
+    flex-direction: column;
+}
+.inventory-spawner label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--text-main);
+}
+.spawner-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+.spawner-controls select {
+    padding: 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    min-width: 180px;
+}
+.btn-spawn {
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.btn-spawn:hover { background: #cbd5e1; }
+
+/* Temp slider UI */
+.hud-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 150px;
+    margin-bottom: 0.4rem;
+    background: transparent;
+}
+.hud-slider:focus { outline: none; }
+.hud-slider::-webkit-slider-runnable-track {
+    width: 100%; height: 6px;
+    background: #e2e8f0; border-radius: 3px; cursor: pointer;
+}
+.hud-slider::-webkit-slider-thumb {
+    height: 18px; width: 18px;
+    border-radius: 50%;
+    background: #fff; cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border: 2px solid var(--accent-green, #7cb342);
+}
+
+/* pH HUD */
+.ph-hud-display {
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #10b981;
+}
+.ph-scale {
+    position: relative;
+    width: 150px;
+}
+.ph-gradient {
+    height: 6px; border-radius: 3px;
+    background: linear-gradient(to right, #ef4444, #f97316, #eab308, #22c55e, #06b6d4, #3b82f6, #8b5cf6, #d946ef);
+}
+.ph-indicator-arrow {
+    position: absolute;
+    top: -16px;
+    font-size: 0.8rem;
+    color: #333;
+    transition: left 0.4s ease;
+    transform: translateX(-50%);
+}
+
+/* HUD Buttons */
+.hud-center button, .hud-right button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    font-size: 0.9rem;
+}
+.btn-clear {
+    background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1;
+}
+.btn-clear:hover { background: #e2e8f0; }
+.btn-mix {
+    background: var(--accent-green, #7cb342); color: white; margin-left: 0.5rem;
+    box-shadow: 0 4px 6px rgba(124, 179, 66, 0.2);
+}
+.btn-mix:hover {
+    background: var(--accent-green-hover, #689f38);
+    transform: translateY(-2px);
+}
+
+/* ==================
+   THE ROOM & DESK
+   ================== */
+.lab-room {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 165px);
+    background: var(--bg-secondary, #e9f5d8);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* KEEP DESK AT BOTTOM */
+}
+
+.room-wall {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* FORCE desk to bottom of the green wall */
+}
+
+/* Multiple Wooden Shelves */
+.multi-shelves-container {
+    position: absolute;
+    top: 160px; /* Increased to move them well below the top HUD */
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; /* vertical space between shelves */
+    width: 400px; /* narrowed slightly so they don't hit the flask */
+    z-index: 10;
+}
+.left-shelves { left: 5%; }
+.right-shelves { right: 300px; /* Placed left of the chemist! */ }
+
+.wooden-shelf {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    /* Wooden texture */
+    background: linear-gradient(to right, #8B5A2B, #A0522D, #8B5A2B);
+    border-radius: 4px;
+    box-shadow: 
+        inset 0 2px 2px rgba(255,255,255,0.2), 
+        0 8px 15px rgba(0,0,0,0.15), 
+        0 15px 30px rgba(0,0,0,0.05);
+    border-bottom: 3px solid #5C3A21;
+}
+
+/* Shelf Slots for Vials */
+.shelf-slots-wrap {
+    position: absolute;
+    bottom: 20px; /* Sitting directly on the shelf */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 1rem;
+}
+
+.shelf-slot {
+    width: 40px;
+    height: 80px;
+    border: 2px dashed rgba(100,100,100,0.2);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.shelf-slot.occupied {
+    border: none;
+}
+
+/* Test Tubes on Shelf */
+.tube-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: grab;
+    transition: transform 0.2s;
+    position: relative;
+    bottom: -15px; /* Adjust to sit inside slot perfectly */
+    z-index: 10;
+}
+.tube-container:hover { transform: translateY(-5px) scale(1.05); }
+.tube-container:active { cursor: grabbing; transform: scale(0.95); }
+.tube-container.dragging { opacity: 0.5; }
+
+.test-tube {
+    width: 28px;
+    height: 80px;
+    border: 2px solid rgba(200,200,200,0.8);
+    border-top: 0;
+    border-radius: 0 0 14px 14px;
+    position: relative;
+    background: rgba(255,255,255,0.4);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+.test-tube::before {
+    content: ''; position: absolute; top: 4px; left: 4px;
+    width: 4px; height: 60px; background: rgba(255,255,255,0.8); border-radius: 2px; z-index: 5;
+}
+.liquid {
+    position: absolute; bottom: 0; width: 100%; height: 75%; /* Fuller vials */
+    border-radius: 0 0 12px 12px;
+}
+/* Basic static liquids for dropping via css */
+.liquid-red { background: linear-gradient(135deg, #ef4444, #991b1b); }
+.liquid-blue { background: linear-gradient(135deg, #3b82f6, #1e3a8a); }
+.liquid-yellow { background: linear-gradient(135deg, #fcd34d, #b45309); }
+.liquid-green { background: linear-gradient(135deg, #22c55e, #14532d); }
+.liquid-clear { background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(200,200,200,0.3)); }
+
+/* Custom created vials will use inline style background */
+
+.tube-tag {
+    margin-top: 5px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background: rgba(255,255,255,0.9);
+    padding: 1px 4px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 60px;
+    overflow: hidden;
+}
+
+/* The Wooden Desk (Workbench Edition) - Enhanced REALISM */
+/* The Wooden Desk Bottom - Reverted to simpler version */
+.wooden-desk {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to bottom, #A0522D 0%, #8B5A2B 100%);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+}
+.desk-surface {
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to right, #CD853F, #D2691E, #CD853F);
+    border-bottom: 2px solid #8B4513;
+}
+
+
+
+.desk-front {
+    width: 100%;
+    height: 210px;
+    background: linear-gradient(to right, #8B4513, #5C3A21, #8B4513);
+}
+
+
+
+/* Desk Items Wrapper - Reverted and grounded */
+.desk-items {
+    position: absolute;
+    bottom: 250px; 
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 15;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+}
+
+/* Workstation Center (Stand + Burner + Flask) */
+.workstation-center {
+    position: relative;
+    width: 300px;
+    height: 480px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: -5px; 
+}
+
+/* Base Weight Shadow under the stand specifically */
+.workstation-center::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    width: 140px;
+    height: 15px;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, transparent 70%);
+    z-index: 1;
+}
+
+/* The Metal Stand Structure */
+.retort-stand-base {
+    position: absolute;
+    bottom: -10px; /* Sits on desk */
+    width: 120px;
+    height: 20px;
+    background: linear-gradient(to bottom, #718096, #4a5568);
+    border-radius: 4px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.4);
+    z-index: 5;
+}
+.retort-stand-pole {
+    position: absolute;
+    bottom: 0px;
+    left: 90px;
+    width: 15px;
+    height: 450px;
+    background: linear-gradient(to right, #a0aec0, #cbd5e1, #718096);
+    border-radius: 5px 5px 0 0;
+    z-index: 5;
+}
+.retort-stand-clamp {
+    position: absolute;
+    bottom: 180px; /* height of clamp holding the flask neck */
+    left: 95px;
+    width: 65px;
+    height: 12px;
+    background: linear-gradient(to bottom, #94a3b8, #64748b);
+    border-radius: 0 6px 6px 0;
+    z-index: 30; /* Front of flask */
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+}
+
+/* Central Flask Area */
+.flask-drop-zone {
+    width: 200px;
+    height: 350px;
+    position: absolute;
+    bottom: 60px; /* Suspended above the burner */
+    left: 140px;
+    transform: translateX(-50%);
+    z-index: 20;
+    transition: all 0.3s;
+}
+.flask-drop-zone.drag-active {
+    filter: drop-shadow(0 0 15px rgba(124, 179, 66, 0.8));
+    transform: translateX(-50%) scale(1.02);
+}
+.flask-svg {
+    width: 100%; height: 100%;
+}
+.flask-liquid {
+    transition: y 0.5s ease, fill 0.8s ease;
+}
+
+/* Bunsen Burner */
+.bunsen-burner {
+    position: absolute;
+    bottom: 0px; /* Sits on desk/base */
+    left: 140px;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(to right, #94a3b8, #475569);
+    border-radius: 3px;
+    z-index: 10;
+}
+.burner-flame {
+    position: absolute;
+    top: -30px;
+    left: 5px;
+    width: 20px;
+    height: 35px;
+    background: radial-gradient(circle at center bottom, #60a5fa 0%, #1d4ed8 70%, transparent 100%);
+    border-radius: 50% 50% 20% 20%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    animation: flicker 0.1s infinite alternate;
+}
+@keyframes flicker {
+    0% { transform: scale(1) translateY(0); }
+    100% { transform: scale(1.05) translateY(-2px); }
+}
+
+/* IMAGE Placeholder for Chemist */
+.chemist-avatar-wrap {
+    position: absolute;
+    right: 2rem; /* Far Right */
+    top: 50%; /* Center Vertically */
+    transform: translateY(-50%);
+    width: 300px;
+    height: 400px;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.chemist-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    position: relative;
+    z-index: 2;
+    background-color: #cbd5e1; /* Grey placeholder background */
+    border: 4px dashed #94a3b8; /* Give it a dashed outline so it's clearly a placeholder */
+    border-radius: 12px;
+    display: block; /* Ensure it renders even if broken link */
+}
+
+.speech-bubble {
+    position: absolute;
+    top: -20px;
+    left: -100px; /* Move bubble to the left of chemist */
+    background: #fff;
+    border: 2px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    opacity: 1;
+    transition: opacity 0.3s;
+    width: max-content;
+    z-index: 30;
+}
+.speech-bubble::after {
+    content: ''; position: absolute; bottom: 20px; right: -10px; left: auto;
+    border-width: 10px 0 10px 10px; border-style: solid; border-color: transparent transparent transparent #fff;
+}
+
+
+/* POURING ANIMATIONS (STABILIZED) */
+.pour-anchor {
+    position: absolute;
+    top: 40px; /* Exact mouth Y in SVG */
+    left: 50%; /* Center of flask X */
+    width: 0; height: 0;
+    z-index: 100;
+}
+
+.pouring-tube {
+    position: absolute;
+    left: -12px; /* Center on anchor */
+    top: -75px;  /* Offset height so the mouth (bottom) is at anchor y=0 */
+    width: 24px; height: 75px;
+    border: 2px solid rgba(255,255,255,0.8); 
+    border-bottom: 0; /* THE BOTTOM IS NOW THE MOUTH (OPEN) */
+    border-radius: 12px 12px 0 0; /* THE TOP IS NOW THE BASE (CLOSED) */
+    background: rgba(255,255,255,0.4); overflow: hidden;
+    transform-origin: center bottom; /* Rotate around the mouth anchor */
+    animation: pourAnim 1.3s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pouring-tube .liquid { 
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    animation: drainAnim 1.3s forwards ease-in-out; 
+}
+
+.drop-stream {
+    position: absolute; 
+    left: -2px; /* Center on anchor */
+    top: 0px;   /* Start exactly at mouth opening (bottom) */
+    width: 4px; height: 135px; z-index: 90; 
+    animation: streamAnim 1.3s forwards ease-in-out; border-radius: 2px;
+}
+
+@keyframes pourAnim {
+    0% { transform: translateY(-30px) rotate(-45deg); opacity: 0; }
+    25% { transform: translateY(0px) rotate(75deg); opacity: 1; }
+    75% { transform: translateY(2px) rotate(75deg); opacity: 1; }
+    100% { transform: translateY(-30px) rotate(0deg); opacity: 0; }
+}
+
+@keyframes drainAnim {
+    0% { height: 100%; } 
+    30% { height: 100%; } 
+    70% { height: 0%; } 
+    100% { height: 0%; }
+}
+
+@keyframes streamAnim {
+    0% { opacity: 0; height: 0; }
+    25% { opacity: 1; height: 135px; }
+    70% { opacity: 1; height: 135px; }
+    80% { opacity: 0; height: 0; transform: translateY(80px); }
+    100% { opacity: 0; height: 0; }
+}

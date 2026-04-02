@@ -4,3 +4,8 @@ ALYSEISKEF1_files/
 *.docx
 *.pdf
 *.zip
+node_modules/
+.env
+.env.local
+dist/
+build/
